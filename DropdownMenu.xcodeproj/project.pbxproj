@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A3B3C121D6A9E0A005808A5 /* dropdownMenu_cornerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A3B3C111D6A9E0A005808A5 /* dropdownMenu_cornerIcon.png */; };
 		E471DDF01C57255800EF1D77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DDEF1C57255800EF1D77 /* main.m */; };
 		E471DDF31C57255800EF1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DDF21C57255800EF1D77 /* AppDelegate.m */; };
 		E471DDF61C57255800EF1D77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DDF51C57255800EF1D77 /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		E471DE091C57255800EF1D77 /* DropdownMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DE081C57255800EF1D77 /* DropdownMenuTests.m */; };
 		E471DE141C57255800EF1D77 /* DropdownMenuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DE131C57255800EF1D77 /* DropdownMenuUITests.m */; };
 		E471DE271C57270400EF1D77 /* LMJDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E471DE261C57270400EF1D77 /* LMJDropdownMenu.m */; };
-		E471DE291C57295F00EF1D77 /* dropdownMenu_cornerIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E471DE281C57295F00EF1D77 /* dropdownMenu_cornerIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A3B3C111D6A9E0A005808A5 /* dropdownMenu_cornerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownMenu_cornerIcon.png; sourceTree = "<group>"; };
 		E471DDEB1C57255800EF1D77 /* DropdownMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DropdownMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E471DDEF1C57255800EF1D77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E471DDF11C57255800EF1D77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		E471DE151C57255800EF1D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E471DE251C57270400EF1D77 /* LMJDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJDropdownMenu.h; sourceTree = "<group>"; };
 		E471DE261C57270400EF1D77 /* LMJDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMJDropdownMenu.m; sourceTree = "<group>"; };
-		E471DE281C57295F00EF1D77 /* dropdownMenu_cornerIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdownMenu_cornerIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,6 @@
 				E471DDFA1C57255800EF1D77 /* Assets.xcassets */,
 				E471DDFC1C57255800EF1D77 /* LaunchScreen.storyboard */,
 				E471DDFF1C57255800EF1D77 /* Info.plist */,
-				E471DE281C57295F00EF1D77 /* dropdownMenu_cornerIcon.png */,
 				E471DDEE1C57255800EF1D77 /* Supporting Files */,
 			);
 			path = DropdownMenu;
@@ -150,6 +149,7 @@
 		E471DE211C57260600EF1D77 /* LMJDropdownMenu */ = {
 			isa = PBXGroup;
 			children = (
+				2A3B3C111D6A9E0A005808A5 /* dropdownMenu_cornerIcon.png */,
 				E471DE251C57270400EF1D77 /* LMJDropdownMenu.h */,
 				E471DE261C57270400EF1D77 /* LMJDropdownMenu.m */,
 			);
@@ -260,8 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E471DDFE1C57255800EF1D77 /* LaunchScreen.storyboard in Resources */,
+				2A3B3C121D6A9E0A005808A5 /* dropdownMenu_cornerIcon.png in Resources */,
 				E471DDFB1C57255800EF1D77 /* Assets.xcassets in Resources */,
-				E471DE291C57295F00EF1D77 /* dropdownMenu_cornerIcon.png in Resources */,
 				E471DDF91C57255800EF1D77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
