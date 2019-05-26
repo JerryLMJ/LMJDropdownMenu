@@ -1,249 +1,289 @@
 //
 //  LMJDropdownMenu.m
 //
-//  Version:1.0.0
-//
-//  Created by MajorLi on 15/5/4.
-//  Copyright (c) 2015年 iOS开发者公会. All rights reserved.
-//
-//  iOS开发者公会-技术1群 QQ群号：87440292
-//  iOS开发者公会-技术2群 QQ群号：232702419
-//  iOS开发者公会-议事区  QQ群号：413102158
+//  Created by LiMingjie on 15/5/4.
+//  Copyright (c) 2015年 LMJ. All rights reserved.
 //
 
 #import "LMJDropdownMenu.h"
 
+@interface LMJDropdownMenu() <UITableViewDelegate, UITableViewDataSource>
 
-#define VIEW_CENTER(aView)       ((aView).center)
-#define VIEW_CENTER_X(aView)     ((aView).center.x)
-#define VIEW_CENTER_Y(aView)     ((aView).center.y)
+@property (nonatomic, strong) UIView      * bgView;
+@property (nonatomic, strong) UIButton    * mainBtn;
+@property (nonatomic, strong) UIImageView * arrowMark;   // 尖头图标
+@property (nonatomic, strong) UITableView * optionsList;   // 下拉列表
 
-#define FRAME_ORIGIN(aFrame)     ((aFrame).origin)
-#define FRAME_X(aFrame)          ((aFrame).origin.x)
-#define FRAME_Y(aFrame)          ((aFrame).origin.y)
-
-#define FRAME_SIZE(aFrame)       ((aFrame).size)
-#define FRAME_HEIGHT(aFrame)     ((aFrame).size.height)
-#define FRAME_WIDTH(aFrame)      ((aFrame).size.width)
-
-
-
-#define VIEW_BOUNDS(aView)       ((aView).bounds)
-
-#define VIEW_FRAME(aView)        ((aView).frame)
-
-#define VIEW_ORIGIN(aView)       ((aView).frame.origin)
-#define VIEW_X(aView)            ((aView).frame.origin.x)
-#define VIEW_Y(aView)            ((aView).frame.origin.y)
-
-#define VIEW_SIZE(aView)         ((aView).frame.size)
-#define VIEW_HEIGHT(aView)       ((aView).frame.size.height)
-#define VIEW_WIDTH(aView)        ((aView).frame.size.width)
-
-
-#define VIEW_X_Right(aView)      ((aView).frame.origin.x + (aView).frame.size.width)
-#define VIEW_Y_Bottom(aView)     ((aView).frame.origin.y + (aView).frame.size.height)
-
-
-
-
-
-
-#define AnimateTime 0.25f   // 下拉动画时间
+@end
 
 
 
 @implementation LMJDropdownMenu
 {
-    UIImageView * _arrowMark;   // 尖头图标
-    UIView      * _listView;    // 下拉列表背景View
-    UITableView * _tableView;   // 下拉列表
-    
-    NSArray     * _titleArr;    // 选项数组
-    CGFloat       _rowHeight;   // 下拉列表行高
+    CGFloat _originHeight;
+    NSMutableArray * _cellHeights;
+}
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        [self initPropertys];
+        [self initViews];
+    }
+    return self;
 }
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
-        [self createMainBtnWithFrame:frame];
+        [self initPropertys];
+        [self initViews];
     }
     return self;
 }
 
-- (void)setFrame:(CGRect)frame{
-    [super setFrame:frame];
 
-    [self createMainBtnWithFrame:frame];
+//@property(nonatomic,copy)   NSString        * title;
+//@property(nonatomic,strong) UIColor         * titleBgColor;
+//@property(nonatomic,strong) UIFont          * titleFont;
+//@property(nonatomic,strong) UIColor         * titleColor;
+//@property(nonatomic)        NSTextAlignment   titleAlignment;
+//@property(nonatomic)        UIEdgeInsets      titleEdgeInsets;
+//
+//@property(nonatomic,strong) UIImage         * rotateIcon;
+//@property(nonatomic,assign) CGSize            rotateIconSize;
+//
+//
+//@property(nonatomic,strong) UIColor         * optionBgColor;
+//@property(nonatomic,strong) UIFont          * optionFont;
+//@property(nonatomic,strong) UIColor         * optionTextColor;
+//@property(nonatomic)        NSTextAlignment   optionTextAlignment;
+//@property(nonatomic)        NSInteger         optionNumberOfLines;
+//@property(nonatomic,strong) UIColor         * optionLineColor;
+//@property(nonatomic,assign) CGSize            optionIconSize;  // default:(15,15)
+
+//@property(nonatomic,assign) CGFloat animateTime;   // 下拉动画时间 default: 0.25
+
+- (void)initPropertys{
+    _originHeight        = 0;
+
+    _title               = @"Please Select";
+    _titleBgColor        = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:1];
+    _titleFont           = [UIFont boldSystemFontOfSize:15];
+    _titleColor          = [UIColor whiteColor];
+    _titleAlignment      = NSTextAlignmentLeft;
+    _titleEdgeInsets     = UIEdgeInsetsMake(0, 10, 0, 10);
+
+    _rotateIcon          = nil;
+    _rotateIconSize      = CGSizeMake(15, 15);
+
+    _optionBgColor       = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
+    _optionFont          = [UIFont systemFontOfSize:13];
+    _optionTextColor     = [UIColor blackColor];
+    _optionTextAlignment = NSTextAlignmentCenter;
+    _optionNumberOfLines = 0;
+    _optionLineColor     = [UIColor whiteColor];
+    _optionIconSize      = CGSizeMake(15, 15);
+
+    _animateTime         = 0.25f;
 }
 
-
-- (void)createMainBtnWithFrame:(CGRect)frame{
-    
-    [_mainBtn removeFromSuperview];
-    _mainBtn = nil;
+- (void)initViews{
+    self.layer.masksToBounds = YES;
     
     // 主按钮 显示在界面上的点击按钮
-    // 样式可以自定义
     _mainBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_mainBtn setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-    [_mainBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_mainBtn setTitle:@"请选择" forState:UIControlStateNormal];
     [_mainBtn addTarget:self action:@selector(clickMainBtn:) forControlEvents:UIControlEventTouchUpInside];
     _mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    _mainBtn.titleLabel.font    = [UIFont systemFontOfSize:14.f];
-    _mainBtn.titleEdgeInsets    = UIEdgeInsetsMake(0, 15, 0, 0);
-    _mainBtn.selected           = NO;
-    _mainBtn.backgroundColor    = [UIColor whiteColor];
-    _mainBtn.layer.borderColor  = [UIColor blackColor].CGColor;
-    _mainBtn.layer.borderWidth  = 1;
-
+    _mainBtn.titleEdgeInsets            = UIEdgeInsetsMake(0, 15, 0, 0);
+    _mainBtn.selected                   = NO;
     [self addSubview:_mainBtn];
     
-    
     // 旋转尖头
-    _arrowMark = [[UIImageView alloc] initWithFrame:CGRectMake(_mainBtn.frame.size.width - 15, 0, 9, 9)];
-    _arrowMark.center = CGPointMake(VIEW_CENTER_X(_arrowMark), VIEW_HEIGHT(_mainBtn)/2);
-    _arrowMark.image  = [UIImage imageNamed:@"dropdownMenu_cornerIcon.png"];
+    _arrowMark = [[UIImageView alloc] init];
     [_mainBtn addSubview:_arrowMark];
-
-}
-
-
-- (void)setMenuTitles:(NSArray *)titlesArr rowHeight:(CGFloat)rowHeight{
     
-    if (self == nil) {
-        return;
-    }
-    
-    _titleArr  = [NSArray arrayWithArray:titlesArr];
-    _rowHeight = rowHeight;
-
-    
-    // 下拉列表背景View
-    _listView = [[UIView alloc] init];
-    _listView.frame = CGRectMake(VIEW_X(self) , VIEW_Y_Bottom(self), VIEW_WIDTH(self),  0);
-    _listView.clipsToBounds       = YES;
-    _listView.layer.masksToBounds = NO;
-    _listView.layer.borderColor   = [UIColor lightTextColor].CGColor;
-    _listView.layer.borderWidth   = 0.5f;
-
     
     // 下拉列表TableView
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,VIEW_WIDTH(_listView), VIEW_HEIGHT(_listView))];
-    _tableView.delegate        = self;
-    _tableView.dataSource      = self;
-    _tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
-    _tableView.bounces         = NO;
-    [_listView addSubview:_tableView];
+    _optionsList = [[UITableView alloc] init];
+    _optionsList.delegate       = self;
+    _optionsList.dataSource     = self;
+    _optionsList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _optionsList.bounces        = NO;
+    [self addSubview:_optionsList];
 }
 
+
+#pragma mark - Set Methods
+- (void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    if (_originHeight == 0) {
+        _originHeight = frame.size.height;
+    }
+    [_mainBtn setFrame:CGRectMake(0, 0, self.frame.size.width, _originHeight)];
+    [_arrowMark setFrame:CGRectMake(self.frame.size.width -7.5-self.rotateIconSize.width, (_originHeight -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+    [_optionsList setFrame:CGRectMake(0, _originHeight, self.frame.size.width, 0)];
+}
+
+- (void)setRotateIcon:(UIImage *)rotateIcon{
+    _rotateIcon = rotateIcon;
+    [self.arrowMark setImage:rotateIcon];
+}
+- (void)setRotateIconSize:(CGSize)rotateIconSize{
+    _rotateIconSize = rotateIconSize;
+    [_arrowMark setFrame:CGRectMake(self.frame.size.width -7.5-rotateIconSize.width, (_originHeight -rotateIconSize.height)/2, rotateIconSize.width, rotateIconSize.height)];
+}
+
+- (void)setTitle:(NSString *)title{
+    _title = title;
+    [self.mainBtn setTitle:title forState:UIControlStateNormal];
+}
+- (void)setTitleBgColor:(UIColor *)titleBgColor{
+    _titleBgColor = titleBgColor;
+    [self.mainBtn setBackgroundColor:titleBgColor];
+    [self.arrowMark setBackgroundColor:titleBgColor];
+}
+- (void)setTitleFont:(UIFont *)titleFont{
+    _titleFont = titleFont;
+    self.mainBtn.titleLabel.font = titleFont;
+}
+- (void)setTitleColor:(UIColor *)titleColor{
+    _titleColor = titleColor;
+    [self.mainBtn setTitleColor:titleColor forState:UIControlStateNormal];
+}
+- (void)setTitleAlignment:(NSTextAlignment)titleAlignment{
+    _titleAlignment = titleAlignment;
+    if (titleAlignment == NSTextAlignmentLeft) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    } else if (titleAlignment == NSTextAlignmentCenter) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    } else if (titleAlignment == NSTextAlignmentRight) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    }
+}
+- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets{
+    _titleEdgeInsets = titleEdgeInsets;
+    self.mainBtn.titleEdgeInsets = titleEdgeInsets;
+}
+
+
+
+#pragma mark - Methods
+- (void)reloadOptionsData{
+    [self.optionsList reloadData];
+}
 - (void)clickMainBtn:(UIButton *)button{
-    
-    [self.superview addSubview:_listView]; // 将下拉视图添加到控件的俯视图上
-    
+    [self.superview.superview addSubview:self]; // 将下拉视图添加到控件的俯视图上
     if(button.selected == NO) {
         [self showDropDown];
-    }
-    else {
+    }else {
         [self hideDropDown];
     }
 }
 
 - (void)showDropDown{   // 显示下拉列表
-    
-    [_listView.superview bringSubviewToFront:_listView]; // 将下拉列表置于最上层
-    
-    
-    
+    [self.superview bringSubviewToFront:_optionsList]; // 将下拉列表置于最上层
     if ([self.delegate respondsToSelector:@selector(dropdownMenuWillShow:)]) {
         [self.delegate dropdownMenuWillShow:self]; // 将要显示回调代理
     }
-    
-    
-    [UIView animateWithDuration:AnimateTime animations:^{
-        
-        _arrowMark.transform = CGAffineTransformMakeRotation(M_PI);
-        _listView.frame  = CGRectMake(VIEW_X(_listView), VIEW_Y(_listView), VIEW_WIDTH(_listView), _rowHeight *_titleArr.count);
-        _tableView.frame = CGRectMake(0, 0, VIEW_WIDTH(_listView), VIEW_HEIGHT(_listView));
+    NSUInteger count = [self.dataSource numberOfOptionsInDropdownMenu:self];
+    _cellHeights = [NSMutableArray arrayWithCapacity:count];
+    CGFloat listHeight = 0;
+    for (int i = 0; i < count; i++) {
+        CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:i];
+        [_cellHeights addObject:@(cHeight)];
+        listHeight += cHeight;
+    }
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:self.animateTime animations:^{
+        weakSelf.arrowMark.transform = CGAffineTransformMakeRotation(M_PI);
+        weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight + listHeight);
+        weakSelf.optionsList.frame = CGRectMake(0, self->_originHeight, self.frame.size.width, listHeight);
         
     }completion:^(BOOL finished) {
-        
         if ([self.delegate respondsToSelector:@selector(dropdownMenuDidShow:)]) {
             [self.delegate dropdownMenuDidShow:self]; // 已经显示回调代理
         }
     }];
     
-    
-    
     _mainBtn.selected = YES;
 }
+
+
 - (void)hideDropDown{  // 隐藏下拉列表
-    
-    
     if ([self.delegate respondsToSelector:@selector(dropdownMenuWillHidden:)]) {
         [self.delegate dropdownMenuWillHidden:self]; // 将要隐藏回调代理
     }
     
-    
-    [UIView animateWithDuration:AnimateTime animations:^{
-        
-        _arrowMark.transform = CGAffineTransformIdentity;
-        _listView.frame  = CGRectMake(VIEW_X(_listView), VIEW_Y(_listView), VIEW_WIDTH(_listView), 0);
-        _tableView.frame = CGRectMake(0, 0, VIEW_WIDTH(_listView), VIEW_HEIGHT(_listView));
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:self.animateTime animations:^{
+        weakSelf.arrowMark.transform = CGAffineTransformIdentity;
+        weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight);
         
     }completion:^(BOOL finished) {
-        
         if ([self.delegate respondsToSelector:@selector(dropdownMenuDidHidden:)]) {
             [self.delegate dropdownMenuDidHidden:self]; // 已经隐藏回调代理
         }
     }];
     
-    
-    
     _mainBtn.selected = NO;
 }
 
 #pragma mark - UITableView Delegate
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return _rowHeight;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_titleArr count];
+    return [self.dataSource numberOfOptionsInDropdownMenu:self];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.dataSource dropdownMenu:self heightForOptionAtIndex:indexPath.row];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MenuOptionListCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         //---------------------------下拉选项样式，可在此处自定义-------------------------
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.font          = [UIFont systemFontOfSize:11.f];
-        cell.textLabel.textColor     = [UIColor blackColor];
-        cell.selectionStyle          = UITableViewCellSelectionStyleNone;
+        cell.selectionStyle  = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = self.optionBgColor;
         
-        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, _rowHeight -0.5, VIEW_WIDTH(cell), 0.5)];
-        line.backgroundColor = [UIColor blackColor];
+        UILabel * titleLabel = [[UILabel alloc] init];
+        titleLabel.font          = self.optionFont;
+        titleLabel.textColor     = self.optionTextColor;
+        titleLabel.numberOfLines = self.optionNumberOfLines;
+        titleLabel.textAlignment = self.optionTextAlignment;
+        titleLabel.tag           = 999;
+        [cell addSubview:titleLabel];
+        
+        UIImageView * icon = [[UIImageView alloc] init];
+        icon.tag = 888;
+        [cell addSubview:icon];
+        
+        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 0.5)];
+        line.backgroundColor = self.optionLineColor;
         [cell addSubview:line];
         //---------------------------------------------------------------------------
     }
+    CGFloat cHeight = [_cellHeights[indexPath.row] floatValue];
     
-    cell.textLabel.text =[_titleArr objectAtIndex:indexPath.row];
+    UILabel * titleLabel = [cell viewWithTag:999];
+    titleLabel.text = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
+    titleLabel.frame = CGRectMake(0, 0, self.frame.size.width - 30, cHeight);
+    
+    UIImageView * icon = [cell viewWithTag:888];
+    if ([self.dataSource respondsToSelector:@selector(dropdownMenu:iconForOptionAtIndex:)]){
+        icon.image =  [self.dataSource dropdownMenu:self iconForOptionAtIndex:indexPath.row];
+    }
+    icon.frame = CGRectMake(self.frame.size.width -7.5-self.optionIconSize.width, (cHeight - self.optionIconSize.height)/2, self.optionIconSize.width, self.optionIconSize.height);
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [_mainBtn setTitle:cell.textLabel.text forState:UIControlStateNormal];
-    
-    if ([self.delegate respondsToSelector:@selector(dropdownMenu:selectedCellNumber:)]) {
-        [self.delegate dropdownMenu:self selectedCellNumber:indexPath.row]; // 回调代理
+    UILabel * titleLabel = [cell viewWithTag:999];
+    self.title = titleLabel.text;
+    if ([self.delegate respondsToSelector:@selector(dropdownMenu:didSelectOptionAtIndex:)]) {
+        [self.delegate dropdownMenu:self didSelectOptionAtIndex:indexPath.row]; // 回调代理
     }
-    
     [self hideDropDown];
 }
 @end
