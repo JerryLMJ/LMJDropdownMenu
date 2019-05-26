@@ -37,7 +37,7 @@
     menu.layer.borderWidth  = 1;
     menu.layer.cornerRadius = 3;
     
-    menu.title           = @"选择框";
+    menu.title           = @"Please Select";
     menu.titleBgColor    = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:1];
     menu.titleFont       = [UIFont boldSystemFontOfSize:15];
     menu.titleColor      = [UIColor whiteColor];

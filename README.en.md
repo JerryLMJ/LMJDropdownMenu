@@ -2,12 +2,12 @@
 
 ![(logo)](https://avatars2.githubusercontent.com/u/15794032?s=460&v=4)
 
-# LMJVerticalScrollText
+# LMJDropdownMenu
 
-![podversion](https://img.shields.io/cocoapods/v/LMJVerticalScrollText.svg?style=flat)
-![](https://img.shields.io/cocoapods/p/LMJVerticalScrollText.svg?style=flat)
-![](https://img.shields.io/badge/language-oc-orange.svg)
-![](https://img.shields.io/cocoapods/l/LMJVerticalScrollText.svg?style=flat)
+![podversion](https://img.shields.io/cocoapods/v/LMJDropdownMenu.svg?style=flat)
+![](https://img.shields.io/cocoapods/p/LMJDropdownMenu.svg?style=flat)
+![](https://img.shields.io/badge/language-Objective-C-orange.svg)
+![](https://img.shields.io/cocoapods/l/LMJDropdownMenu.svg?style=flat)
 
 - A simple and easy to use drop-down menu control
 

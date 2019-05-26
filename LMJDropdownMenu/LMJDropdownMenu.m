@@ -1,7 +1,7 @@
 //
 //  LMJDropdownMenu.m
 //
-//  Created by LiMingjie on 15/5/4.
+//  Created by JerryLMJ on 15/5/4.
 //  Copyright (c) 2015年 LMJ. All rights reserved.
 //
 
