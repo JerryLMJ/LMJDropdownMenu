@@ -1,6 +1,6 @@
-简体中文 | [English](./README.en.md)
-
 ![(logo)](https://avatars2.githubusercontent.com/u/15794032?s=460&v=4)
+
+简体中文 | [English](./README.en.md)             
 
 # LMJDropdownMenu
 
@@ -29,6 +29,10 @@
     
 
 ## 更新日志
+- **2019.6.5（2.0.1）：**                                                     
+本次更新修改了代理方法：由 `dropdownMenu:didSelectOptionAtIndex:`变更为 `dropdownMenu:didSelectOptionAtIndex:optionTitle:`。                     
+⚠️请升级版本的同学注意修改代码中的代理方法！                        
+
 - **2019.5.26（2.0.0）：**                                          
 全新的2.0版本来啦！🎉🎉🎉               
 本次更新增加了大家一直要求的cocoapods安装，并完善了demo模块的文件结构以及全新的中英文文档。         

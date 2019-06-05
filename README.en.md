@@ -1,6 +1,6 @@
-[简体中文](./README.md) | English
-
 ![(logo)](https://avatars2.githubusercontent.com/u/15794032?s=460&v=4)
+
+[简体中文](./README.md) | English                 
 
 # LMJDropdownMenu
 
@@ -29,7 +29,10 @@
     * Import the main file：`#import "LMJDropdownMenu.h"`            
 
 
-## Update log                              
+## Update log   
+- **2019.6.5 (2.0.1) : **                 
+The update changed the proxy method: by ` dropdownMenu:didSelectOptionAtIndex:` change to ` dropdownMenu:didSelectOptionAtIndex:optionTitle:`.                        
+⚠️please upgrade version of the proxy method users pay attention to modify the code!                   
 - **2019.5.26（2.0.0）：**                                      
 The new 2.0 version is here! 🎉 🎉 🎉                     
 This update adds the installation of cocoapods that you have been asking for, and improves the file structure of demo module as well as new Chinese and English documents.                  
