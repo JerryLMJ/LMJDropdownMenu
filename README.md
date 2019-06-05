@@ -6,7 +6,7 @@
 
 ![podversion](https://img.shields.io/cocoapods/v/LMJDropdownMenu.svg?style=flat)
 ![](https://img.shields.io/cocoapods/p/LMJDropdownMenu.svg?style=flat)
-![](https://img.shields.io/badge/language-Objective-C-orange.svg)
+![](https://img.shields.io/badge/language-oc-orange.svg)
 ![](https://img.shields.io/cocoapods/l/LMJDropdownMenu.svg?style=flat)
 
 - 一个简单好用的下拉菜单控件
