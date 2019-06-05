@@ -72,8 +72,8 @@
     return [UIImage imageNamed:_optionIcons[index]];
 }
 #pragma mark - LMJDropdownMenu Delegate
-- (void)dropdownMenu:(LMJDropdownMenu *)menu selectedCellNumber:(NSInteger)number{
-    NSLog(@"你选择了(you selected)：%ld",number);
+- (void)dropdownMenu:(LMJDropdownMenu *)menu didSelectOptionAtIndex:(NSUInteger)index optionTitle:(NSString *)title{
+    NSLog(@"你选择了(you selected)：%ld - title: %@", index, title);
 }
 
 - (void)dropdownMenuWillShow:(LMJDropdownMenu *)menu{

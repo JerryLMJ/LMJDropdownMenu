@@ -42,28 +42,6 @@
     return self;
 }
 
-
-//@property(nonatomic,copy)   NSString        * title;
-//@property(nonatomic,strong) UIColor         * titleBgColor;
-//@property(nonatomic,strong) UIFont          * titleFont;
-//@property(nonatomic,strong) UIColor         * titleColor;
-//@property(nonatomic)        NSTextAlignment   titleAlignment;
-//@property(nonatomic)        UIEdgeInsets      titleEdgeInsets;
-//
-//@property(nonatomic,strong) UIImage         * rotateIcon;
-//@property(nonatomic,assign) CGSize            rotateIconSize;
-//
-//
-//@property(nonatomic,strong) UIColor         * optionBgColor;
-//@property(nonatomic,strong) UIFont          * optionFont;
-//@property(nonatomic,strong) UIColor         * optionTextColor;
-//@property(nonatomic)        NSTextAlignment   optionTextAlignment;
-//@property(nonatomic)        NSInteger         optionNumberOfLines;
-//@property(nonatomic,strong) UIColor         * optionLineColor;
-//@property(nonatomic,assign) CGSize            optionIconSize;  // default:(15,15)
-
-//@property(nonatomic,assign) CGFloat animateTime;   // 下拉动画时间 default: 0.25
-
 - (void)initPropertys{
     _originHeight        = 0;
 
@@ -281,8 +259,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UILabel * titleLabel = [cell viewWithTag:999];
     self.title = titleLabel.text;
-    if ([self.delegate respondsToSelector:@selector(dropdownMenu:didSelectOptionAtIndex:)]) {
-        [self.delegate dropdownMenu:self didSelectOptionAtIndex:indexPath.row]; // 回调代理
+    if ([self.delegate respondsToSelector:@selector(dropdownMenu:didSelectOptionAtIndex:optionTitle:)]) {
+        [self.delegate dropdownMenu:self didSelectOptionAtIndex:indexPath.row optionTitle:titleLabel.text];
     }
     [self hideDropDown];
 }
