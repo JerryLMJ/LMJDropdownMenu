@@ -30,7 +30,7 @@
 
 
 ## Update log   
-- **2019.6.5 (2.0.1) : **                 
+- **2019.6.5 （2.0.1）：**                 
 The update changed the proxy method: by ` dropdownMenu:didSelectOptionAtIndex:` change to ` dropdownMenu:didSelectOptionAtIndex:optionTitle:`.                        
 ⚠️please upgrade version of the proxy method users pay attention to modify the code!    
                 
