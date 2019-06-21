@@ -29,8 +29,12 @@
     
 
 ## 更新日志
+- **2019.6.21（2.0.2）：**                                                            
+本次更新，在demo模块增加了同一个视图存在多个下拉菜单的例子，并且增加新的菜单样式设置演示。                
+优化下拉选项的布局效果。                          
+
 - **2019.6.5（2.0.1）：**                                                     
-本次更新修改了代理方法：由 `dropdownMenu:didSelectOptionAtIndex:`变更为 `dropdownMenu:didSelectOptionAtIndex:optionTitle:`。                     
+本次更新修改了代理方法：由 `dropdownMenu:didSelectOptionAtIndex:`变更为 `dropdownMenu:didSelectOptionAtIndex:optionTitle:icon:`。                     
 ⚠️请升级版本的同学注意修改代码中的代理方法！                        
 
 - **2019.5.26（2.0.0）：**                                          

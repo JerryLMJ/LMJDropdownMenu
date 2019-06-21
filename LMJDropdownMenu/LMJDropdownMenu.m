@@ -61,7 +61,7 @@
     _optionTextAlignment = NSTextAlignmentCenter;
     _optionNumberOfLines = 0;
     _optionLineColor     = [UIColor whiteColor];
-    _optionIconSize      = CGSizeMake(15, 15);
+    _optionIconSize      = CGSizeMake(0, 0);
 
     _animateTime         = 0.25f;
 }
@@ -245,7 +245,7 @@
     
     UILabel * titleLabel = [cell viewWithTag:999];
     titleLabel.text = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
-    titleLabel.frame = CGRectMake(0, 0, self.frame.size.width - 30, cHeight);
+    titleLabel.frame = CGRectMake(15, 0, self.frame.size.width - 15 -self.optionIconSize.width -15, cHeight);
     
     UIImageView * icon = [cell viewWithTag:888];
     if ([self.dataSource respondsToSelector:@selector(dropdownMenu:iconForOptionAtIndex:)]){

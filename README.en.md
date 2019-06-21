@@ -30,8 +30,12 @@
 
 
 ## Update log   
+- **2019.6.21 （2.0.2）：**                  
+In this update, the demo module adds an example of multiple drop-down menus in the same view and a demonstration of new menu style Settings.                                 
+Optimize the layout of drop-down options.                          
+
 - **2019.6.5 （2.0.1）：**                 
-The update changed the proxy method: by ` dropdownMenu:didSelectOptionAtIndex:` change to ` dropdownMenu:didSelectOptionAtIndex:optionTitle:`.                        
+The update changed the proxy method: by ` dropdownMenu:didSelectOptionAtIndex:` change to ` dropdownMenu:didSelectOptionAtIndex:optionTitle:icon:`.                        
 ⚠️please upgrade version of the proxy method users pay attention to modify the code!    
                 
 - **2019.5.26（2.0.0）：**                                      
