@@ -151,7 +151,6 @@
     [self.optionsList reloadData];
 }
 - (void)clickMainBtn:(UIButton *)button{
-    [self.superview.superview addSubview:self]; // 将下拉视图添加到控件的俯视图上
     if(button.selected == NO) {
         [self showDropDown];
     }else {
@@ -160,7 +159,13 @@
 }
 
 - (void)showDropDown{   // 显示下拉列表
-    [self.superview bringSubviewToFront:_optionsList]; // 将下拉列表置于最上层
+    for (UIView * view in self.superview.subviews) {
+        if ([view isKindOfClass:[LMJDropdownMenu class]]) {
+            if (view != self) {
+                [(LMJDropdownMenu *)view hideDropDown];
+            }
+        }
+    }
     if ([self.delegate respondsToSelector:@selector(dropdownMenuWillShow:)]) {
         [self.delegate dropdownMenuWillShow:self]; // 将要显示回调代理
     }
