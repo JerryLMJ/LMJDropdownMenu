@@ -30,6 +30,10 @@
 
 
 ## Update log   
+- **2019.7.1 (2.0.3) : **              
+This update, fix the page push process menu disappeared bug.                       
+Added, when there are multiple menus on the page, it will close other menus that have been expanded when the menu is opened.                
+
 - **2019.6.21 （2.0.2）：**                  
 In this update, the demo adds a way to use multiple drop-down menus for the same view, and a new demonstration of menu style Settings.                                  
 Optimize the layout of drop-down options.                            
