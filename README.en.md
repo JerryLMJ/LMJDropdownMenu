@@ -31,6 +31,7 @@
     
 ## Properties and methods
 | Attribute | Description |
+| --- | ---
 | dataSource | dataSource proxy object
 | delegate | delegate object
 | --- | ---
@@ -61,6 +62,7 @@
 | - hideDropDown | hide drop-down list
 
 | Deleget Method | Optional | Description |
+| --- | --- | ---
 | *LMJDropdownMenuDataSource* | --- | -- -
 | - numberOfOptionsInDropdownMenu: | required | for the drop-down list
 | - dropdownMenu: heightForOptionAtIndex: | required | for the height of each drop-down options

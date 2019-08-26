@@ -30,6 +30,7 @@
 
 ## 属性及方法
 | 属性 | 描述 |
+| --- | ---
 | dataSource | 数据源代理对象
 | delegate | 代理对象
 | --- | ---
@@ -61,6 +62,7 @@
 
 
 | 代理方法 | 是否必选 | 描述 |
+| --- | --- | ---
 | *LMJDropdownMenuDataSource* | --- | ---
 | - numberOfOptionsInDropdownMenu: | 必选 | 获取下拉列表选项个数
 | - dropdownMenu:heightForOptionAtIndex: | 必选 | 获取每个下拉选项的高度
