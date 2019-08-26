@@ -28,6 +28,52 @@
     * 导入头文件`#import "LMJDropdownMenu.h"`
     
 
+## 属性及方法
+| 属性 | 描述 |
+| dataSource | 数据源代理对象
+| delegate | 代理对象
+| --- | ---
+| title | 标题，默认‘Please Select’。选择选项值后，表示当前选择的选项
+| titleFont | 标题字体
+| titleColor | 标题颜色
+| titleAlignment | 标题对齐
+| titleEdgeInsets | 标题边界内距
+| titleBgColor | 标题背景颜色
+| --- | ---
+| rotateIcon | 下拉旋转箭头图标
+| rotateIconSize | 下拉旋转箭头大小
+| --- | ---
+| optionBgColor | 选项背景颜色
+| optionFont | 选项字体
+| optionTextColor | 选项字体颜色
+| optionTextAlignment | 选项文字对齐
+| optionNumberOfLines | 选项文字行数，默认0（多行）
+| optionLineColor | 选项分割线颜色
+| optionIconSize | 选项图标大小，默认(15,15)
+| --- | ---
+| animateTime | 下拉动画时间， 默认0.25
+
+| 方法 | 描述 |
+| --- | ---
+| - reloadOptionsData | 刷新下拉列表数据
+| - showDropDown | 显示下拉列表
+| - hideDropDown | 隐藏下拉列表
+
+
+| 代理方法 | 是否必选 | 描述 |
+| *LMJDropdownMenuDataSource* | --- | ---
+| - numberOfOptionsInDropdownMenu: | 必选 | 获取下拉列表选项个数
+| - dropdownMenu:heightForOptionAtIndex: | 必选 | 获取每个下拉选项的高度
+| - dropdownMenu:titleForOptionAtIndex: | 必选 | 获取每个下拉选项的文字
+| - dropdownMenu:iconForOptionAtIndex: | 可选 | 获取每个下拉选项的图标
+| *LMJDropdownMenuDelegate* | --- | ---
+| - dropdownMenuWillShow: | 可选 | 下拉菜单将要显示
+| - dropdownMenuDidShow: | 可选 | 下拉菜单已经显示
+| - dropdownMenuWillHidden: | 可选 | 下拉菜单将要隐藏
+| - dropdownMenuDidHidden: | 可选 | 下拉菜单已经隐藏
+| - dropdownMenu:didSelectOptionAtIndex:optionTitle: | 可选 | 点击下拉列表某个选项
+
+
 ## 更新日志
 - **2019.7.1（2.0.3）：**                                                                    
 本次更新，修复页面跳转过程中菜单消失的bug。                       

@@ -26,7 +26,52 @@
 
 * Manual import:                
     * Drag All files in the `LMJDropdownMenu` folder to project                
-    * Import the main file：`#import "LMJDropdownMenu.h"`            
+    * Import the main file：`#import "LMJDropdownMenu.h"`       
+    
+    
+## Properties and methods
+| Attribute | Description |
+| dataSource | dataSource proxy object
+| delegate | delegate object
+| --- | ---
+| title | title, default 'Please Select'. When the option value is selected, it represents the currently selected option
+| titleFont | titleFont
+| titleColor | titleColor
+| titleAlignment | title alignment
+| titleEdgeInsets | title boundary inner space
+| titleBgColor | title background color
+| --- | ---
+| rotateIcon | drop-down rotation arrow icon
+| rotateIconSize | drop-down rotation arrow size
+| --- | ---
+| optionBgColor | option background color
+| optionFont | option font
+| optionTextColor | option font color
+| optionTextAlignment | option text alignment
+| optionNumberOfLines | optionNumberOfLines of text, default 0 (multiple lines)
+| optionLineColor | option to divide line color
+| optionIconSize | optionIconSize, default (15,15)
+| --- | ---
+| animateTime | animateTime, default 0.25
+
+| Method | Description |
+| --- | ---
+| - reloadOptionsData | refreshes the drop-down list data
+| - showDropDown | displays drop-down list
+| - hideDropDown | hide drop-down list
+
+| Deleget Method | Optional | Description |
+| *LMJDropdownMenuDataSource* | --- | -- -
+| - numberOfOptionsInDropdownMenu: | required | for the drop-down list
+| - dropdownMenu: heightForOptionAtIndex: | required | for the height of each drop-down options
+| - dropdownMenu: titleForOptionAtIndex: | required | text for each drop-down options
+| - dropdownMenu: iconForOptionAtIndex: | optional | optional icon for each drop-down options
+| *LMJDropdownMenuDelegate* | --- | ---
+| - dropdownMenuWillShow: | optional | drop-down menu will be displayed
+| - dropdownMenuDidShow: | optional | drop-down menu has been displayed
+| - dropdownmenuhidden: | optional | drop-down menu will be hidden
+| - dropdownMenuDidHidden: | optional | drop-down menu has been hidden
+| - dropdownMenu: didSelectOptionAtIndex: optionTitle: | optional | click drop-down list some options
 
 
 ## Update log   
