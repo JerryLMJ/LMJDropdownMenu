@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Demo-StoryboardVC.h"
 
 #import "LMJDropdownMenu.h"
 
@@ -68,25 +69,24 @@
     
     
     // ----------------------- menu2 ---------------------------
-    menu2 = [[LMJDropdownMenu alloc] init];
-    [menu2 setFrame:CGRectMake(200, 80, 150, 40)];
+    menu2 = [[LMJDropdownMenu alloc] initWithFrame:CGRectMake(200, 80, 150, 40)];
     menu2.dataSource = self;
     menu2.delegate   = self;
-    
+
     menu2.layer.borderColor  = [UIColor blackColor].CGColor;
     menu2.layer.borderWidth  = 1;
 //    menu2.layer.cornerRadius = 3;
-    
+
     menu2.title           = @"Please Select";
     menu2.titleBgColor    = [UIColor lightGrayColor];
     menu2.titleFont       = [UIFont boldSystemFontOfSize:15];
     menu2.titleColor      = [UIColor orangeColor];
     menu2.titleAlignment  = NSTextAlignmentCenter;
     menu2.titleEdgeInsets = UIEdgeInsetsZero;
-    
+
 //    menu2.rotateIcon      = [UIImage imageNamed:@"arrowIcon3"];
 //    menu2.rotateIconSize  = CGSizeMake(15, 15);
-    
+
     menu2.optionBgColor       = [UIColor whiteColor];
     menu2.optionFont          = [UIFont systemFontOfSize:12];
     menu2.optionTextColor     = [UIColor blackColor];
@@ -94,8 +94,26 @@
     menu2.optionNumberOfLines = 0;
     menu2.optionLineColor     = [UIColor blackColor];
 //    menu2.optionIconSize      = CGSizeMake(15, 15);
-    
+
     [self.view addSubview:menu2];
+    
+    
+    [self buildGotoStoryboardPageBtn];
+}
+
+- (void)buildGotoStoryboardPageBtn{
+    UIButton * demoAddToXibPageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [demoAddToXibPageBtn setTitle:@"DemoAddToXibPage >>>" forState:UIControlStateNormal];
+    [demoAddToXibPageBtn setBackgroundColor:[UIColor grayColor]];
+    [demoAddToXibPageBtn setFrame:CGRectMake(20, 550, 300, 30)];
+    [demoAddToXibPageBtn addTarget:self action:@selector(clickDemoAddToXibPageBtn) forControlEvents:UIControlEventTouchUpInside];
+    demoAddToXibPageBtn.layer.cornerRadius = 3;
+    [self.view addSubview:demoAddToXibPageBtn];
+}
+
+- (void)clickDemoAddToXibPageBtn {
+    Demo_StoryboardVC * vc = [[UIStoryboard storyboardWithName:@"Demo" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"Demo_StoryboardVC"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - LMJDropdownMenu DataSource

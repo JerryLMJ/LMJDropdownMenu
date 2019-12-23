@@ -14,6 +14,9 @@
 @property (nonatomic, strong) UIImageView * arrowMark;   // 尖头图标
 @property (nonatomic, strong) UITableView * optionsList;   // 下拉列表
 
+@property (nonatomic, assign) NSLayoutConstraint * hConstraint;
+@property (nonatomic, strong) NSMutableArray<NSLayoutConstraint *> * bConstraints;
+
 @end
 
 
@@ -21,16 +24,8 @@
 @implementation LMJDropdownMenu
 {
     CGFloat _originHeight;
+    CGFloat _listHeight;
     NSMutableArray * _cellHeights;
-}
-
-- (id)init{
-    self = [super init];
-    if (self) {
-        [self initPropertys];
-        [self initViews];
-    }
-    return self;
 }
 
 - (id)initWithFrame:(CGRect)frame{
@@ -38,9 +33,36 @@
     if (self) {
         [self initPropertys];
         [self initViews];
+        [self setFrame:self.frame];
     }
     return self;
 }
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    _bConstraints = [NSMutableArray array];
+    [self initPropertys];
+    [self initViews];
+    [self setFrame:self.frame];
+}
+
+-(void)layoutSubviews {
+    NSArray *constraints = self.constraints;
+    for(NSLayoutConstraint *constraint in constraints){
+        if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+            _hConstraint = constraint;
+        }
+
+    }
+    constraints = self.superview.constraints;
+    [_bConstraints removeAllObjects];
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.secondItem == self && constraint.secondAttribute == NSLayoutAttributeBottom) {
+            [_bConstraints addObject:constraint];
+        }
+    }
+}
+
 
 - (void)initPropertys{
     _originHeight        = 0;
@@ -171,18 +193,29 @@
     }
     NSUInteger count = [self.dataSource numberOfOptionsInDropdownMenu:self];
     _cellHeights = [NSMutableArray arrayWithCapacity:count];
-    CGFloat listHeight = 0;
+    _listHeight = 0;
     for (int i = 0; i < count; i++) {
         CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:i];
         [_cellHeights addObject:@(cHeight)];
-        listHeight += cHeight;
+        _listHeight += cHeight;
     }
     __weak typeof(self) weakSelf = self;
+    if(_hConstraint) {
+        _hConstraint.constant = _originHeight + _listHeight;
+    }
+    if (_bConstraints.count > 0) {
+        for (NSLayoutConstraint * constraint in _bConstraints) {
+            constraint.constant = constraint.constant -_listHeight;
+        }
+    }
     [UIView animateWithDuration:self.animateTime animations:^{
+        if (self->_hConstraint || self->_bConstraints.count > 0) {
+            [self.superview layoutIfNeeded];
+        } else {
+            weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight + self->_listHeight);
+        }
         weakSelf.arrowMark.transform = CGAffineTransformMakeRotation(M_PI);
-        weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight + listHeight);
-        weakSelf.optionsList.frame = CGRectMake(0, self->_originHeight, self.frame.size.width, listHeight);
-        
+        weakSelf.optionsList.frame = CGRectMake(0, self->_originHeight, self.frame.size.width, self->_listHeight);
     }completion:^(BOOL finished) {
         if ([self.delegate respondsToSelector:@selector(dropdownMenuDidShow:)]) {
             [self.delegate dropdownMenuDidShow:self]; // 已经显示回调代理
@@ -199,10 +232,21 @@
     }
     
     __weak typeof(self) weakSelf = self;
+    if(_hConstraint) {
+        _hConstraint.constant = _originHeight;
+    }
+    if (_bConstraints.count > 0) {
+        for (NSLayoutConstraint * constraint in _bConstraints) {
+            constraint.constant = constraint.constant +_listHeight;
+        }
+    }
     [UIView animateWithDuration:self.animateTime animations:^{
         weakSelf.arrowMark.transform = CGAffineTransformIdentity;
-        weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight);
-        
+        if (self->_hConstraint || self-> _bConstraints) {
+            [self.superview layoutIfNeeded];
+        } else {
+            weakSelf.frame  = CGRectMake(weakSelf.frame.origin.x, weakSelf.frame.origin.y, weakSelf.frame.size.width, self->_originHeight);
+        }
     }completion:^(BOOL finished) {
         if ([self.delegate respondsToSelector:@selector(dropdownMenuDidHidden:)]) {
             [self.delegate dropdownMenuDidHidden:self]; // 已经隐藏回调代理

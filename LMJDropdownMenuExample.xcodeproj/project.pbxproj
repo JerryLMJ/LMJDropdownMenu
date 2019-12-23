@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994F530423B0D9F10044643E /* Demo-StoryboardVC.m */; };
+		994F530723B0DA060044643E /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994F530623B0DA060044643E /* Demo.storyboard */; };
 		E43909562297E297002BD570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909552297E297002BD570 /* AppDelegate.m */; };
 		E43909592297E297002BD570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909582297E297002BD570 /* ViewController.m */; };
 		E439095C2297E297002BD570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E439095A2297E297002BD570 /* Main.storyboard */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		994F530323B0D9F10044643E /* Demo-StoryboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-StoryboardVC.h"; sourceTree = "<group>"; };
+		994F530423B0D9F10044643E /* Demo-StoryboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-StoryboardVC.m"; sourceTree = "<group>"; };
+		994F530623B0DA060044643E /* Demo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
 		E43909512297E297002BD570 /* LMJDropdownMenuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMJDropdownMenuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43909542297E297002BD570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E43909552297E297002BD570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		994F530223B0D9B40044643E /* Demo-Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				994F530323B0D9F10044643E /* Demo-StoryboardVC.h */,
+				994F530423B0D9F10044643E /* Demo-StoryboardVC.m */,
+				994F530623B0DA060044643E /* Demo.storyboard */,
+			);
+			path = "Demo-Storyboard";
+			sourceTree = "<group>";
+		};
 		E43909482297E297002BD570 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E43909882297E433002BD570 /* Demo-Base */,
+				994F530223B0D9B40044643E /* Demo-Storyboard */,
 				E43909872297E2EB002BD570 /* Supporting Files */,
 				E43909862297E2B0002BD570 /* AppDelegate */,
 			);
@@ -275,6 +291,7 @@
 				E43909612297E299002BD570 /* LaunchScreen.storyboard in Resources */,
 				E43909A2229A97A8002BD570 /* Assets.xcassets in Resources */,
 				E439095C2297E297002BD570 /* Main.storyboard in Resources */,
+				994F530723B0DA060044643E /* Demo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +320,7 @@
 				E439098C2297E4C2002BD570 /* LMJDropdownMenu.m in Sources */,
 				E43909642297E299002BD570 /* main.m in Sources */,
 				E43909562297E297002BD570 /* AppDelegate.m in Sources */,
+				994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
