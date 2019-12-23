@@ -77,6 +77,11 @@
 
 
 ## Update log   
+
+- **2019.12.23 （2.1.0） ：**                      
+Fixed the use of controls in xib and storyboard.                     
+Added a Demo for the use of controls in storyboard.                     
+
 - **2019.7.1 （2.0.3） ：**              
 This update, fix the page push process menu disappeared bug.                       
 Added, when there are multiple menus on the page, it will close other menus that have been expanded when the menu is opened.                
