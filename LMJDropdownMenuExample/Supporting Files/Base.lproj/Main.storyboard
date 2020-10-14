@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hcY-Xt-KeT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="sUe-iX-27x">
+            <objects>
+                <navigationController id="hcY-Xt-KeT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5L3-ji-ZE9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8bo-HB-HgD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PV8-1G-qnZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1478" y="-86"/>
+        </scene>
+        <!--Demo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-J4-U1u">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4oC-Qe-xGt"/>
+                                </constraints>
+                                <state key="normal" title="Demo: Add To Base Page(NavigationBar) &gt;&gt;&gt;"/>
+                                <connections>
+                                    <action selector="clickDemoAddToBasePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hvW-BJ-hVd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiG-Y3-Urz">
+                                <rect key="frame" x="0.0" y="132" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2Kg-Ld-lGW"/>
+                                </constraints>
+                                <state key="normal" title="Demo: Add To Xib &gt;&gt;&gt;"/>
+                                <connections>
+                                    <action selector="clickDemoAddToXibPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qUP-3l-UOB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjZ-Wk-VR5">
+                                <rect key="frame" x="0.0" y="176" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="agU-Vv-yFF"/>
+                                </constraints>
+                                <state key="normal" title="Demo: Add To TableViewCell &gt;&gt;&gt;"/>
+                                <connections>
+                                    <action selector="clickDemoAddToTableViewCell:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8BZ-7x-hEm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eiG-Y3-Urz" firstAttribute="top" secondItem="8jI-J4-U1u" secondAttribute="bottom" id="2gv-sc-ETg"/>
+                            <constraint firstItem="8jI-J4-U1u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2jg-xr-lfv"/>
+                            <constraint firstItem="eiG-Y3-Urz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hv2-Dr-RH0"/>
+                            <constraint firstItem="eiG-Y3-Urz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hse-5G-4QT"/>
+                            <constraint firstItem="xjZ-Wk-VR5" firstAttribute="top" secondItem="eiG-Y3-Urz" secondAttribute="bottom" id="jSl-yl-Cxl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8jI-J4-U1u" secondAttribute="trailing" id="mGP-03-5jf"/>
+                            <constraint firstItem="8jI-J4-U1u" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mTH-yO-y3y"/>
+                            <constraint firstItem="xjZ-Wk-VR5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vgk-SR-CZ8"/>
+                            <constraint firstItem="xjZ-Wk-VR5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wHQ-r5-I7R"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Demo" id="bAu-WF-pxk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-752.17391304347836" y="-86.383928571428569"/>
         </scene>
     </scenes>
 </document>

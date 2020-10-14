@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Demo Table View CellVC-->
+        <scene sceneID="OoS-PH-YyX">
+            <objects>
+                <viewController storyboardIdentifier="Demo_TableViewCellVC" id="GLJ-Z2-yyZ" customClass="Demo_TableViewCellVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ebB-Hb-Nvw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="orm-Ol-X1W">
+                                <rect key="frame" x="0.0" y="44" width="414" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="zVg-nY-NoQ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" rowHeight="80" id="wn1-sf-xHx" customClass="Demo_TableViewListCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wn1-sf-xHx" id="pvj-f4-4NV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHN-zy-yCQ" customClass="LMJDropdownMenu">
+                                                    <rect key="frame" x="60" y="10" width="294" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uHN-zy-yCQ" firstAttribute="top" secondItem="pvj-f4-4NV" secondAttribute="top" constant="10" id="2aT-HG-Uxs"/>
+                                                <constraint firstAttribute="trailing" secondItem="uHN-zy-yCQ" secondAttribute="trailing" constant="60" id="T8Z-KS-bRr"/>
+                                                <constraint firstAttribute="bottom" secondItem="uHN-zy-yCQ" secondAttribute="bottom" constant="10" id="Uj3-an-HT7"/>
+                                                <constraint firstItem="uHN-zy-yCQ" firstAttribute="leading" secondItem="pvj-f4-4NV" secondAttribute="leading" constant="60" id="XXv-l5-slN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="menu" destination="uHN-zy-yCQ" id="iN6-gF-CGH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="GLJ-Z2-yyZ" id="O0Y-qK-LZO"/>
+                                    <outlet property="delegate" destination="GLJ-Z2-yyZ" id="zvx-2m-FUY"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPR-Ev-W9k">
+                                <rect key="frame" x="20" y="719.5" width="374" height="142.5"/>
+                                <string key="text">注意：该demo中代码并没有考虑cell复用队列的影响，请自行添加相关逻辑  Note: The code in this demo does not consider the effect of cell reuse queues. Please add your own logic </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="n5X-T5-Ar8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="n5X-T5-Ar8" firstAttribute="trailing" secondItem="orm-Ol-X1W" secondAttribute="trailing" id="Bny-Ra-2uV"/>
+                            <constraint firstItem="FPR-Ev-W9k" firstAttribute="leading" secondItem="n5X-T5-Ar8" secondAttribute="leading" constant="20" id="RIO-2A-JnM"/>
+                            <constraint firstItem="orm-Ol-X1W" firstAttribute="leading" secondItem="n5X-T5-Ar8" secondAttribute="leading" id="UJ3-B2-xQ0"/>
+                            <constraint firstItem="orm-Ol-X1W" firstAttribute="top" secondItem="n5X-T5-Ar8" secondAttribute="top" id="Xp6-2d-Kra"/>
+                            <constraint firstItem="n5X-T5-Ar8" firstAttribute="bottom" secondItem="FPR-Ev-W9k" secondAttribute="bottom" id="iGR-j4-Z4P"/>
+                            <constraint firstItem="n5X-T5-Ar8" firstAttribute="trailing" secondItem="FPR-Ev-W9k" secondAttribute="trailing" constant="20" id="sjm-uf-dEx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="listView" destination="orm-Ol-X1W" id="VI9-Kg-LMI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QC9-B0-w6x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="405.79710144927537" y="126.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

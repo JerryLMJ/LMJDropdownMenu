@@ -1,31 +1,34 @@
 //
-//  ViewController.m
+//  Demo-BaseVC.m
 //  LMJDropdownMenuExample
 //
-//  Created by LiMingjie on 2019/5/24.
-//  Copyright © 2019 LMJ. All rights reserved.
+//  Created by JerryLMJ on 2020/10/13.
+//  Copyright © 2020 LMJ. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "Demo-StoryboardVC.h"
-
+#import "Demo-BaseVC.h"
 #import "LMJDropdownMenu.h"
 
-@interface ViewController () <LMJDropdownMenuDataSource,LMJDropdownMenuDelegate>
+@interface Demo_BaseVC () <LMJDropdownMenuDataSource,LMJDropdownMenuDelegate>
+
+@end
+
+@implementation Demo_BaseVC
 {
     NSArray * _menu1OptionTitles;
     NSArray * _menu1OptionIcons;
     
     NSArray * _menu2OptionTitles;
     
+    LMJDropdownMenu * navMenu;
+    
     LMJDropdownMenu * menu1;
     LMJDropdownMenu * menu2;
 }
-@end
 
-@implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor lightGrayColor];
     
     
@@ -35,10 +38,45 @@
     _menu2OptionTitles = @[@"选项一\n1",@"选项二\n2",@"选项三\n3",@"选项四\n4"];
     
     
+    // ----------------------- navigation bar menu ---------------------------
+    navMenu = [[LMJDropdownMenu alloc] init];
+    [navMenu setFrame:CGRectMake(self.view.bounds.size.width - 160, 2, 150, 40)];
+    navMenu.dataSource = self;
+    navMenu.delegate   = self;
+    
+    navMenu.layer.borderColor  = [UIColor whiteColor].CGColor;
+    navMenu.layer.borderWidth  = 1;
+    navMenu.layer.cornerRadius = 3;
+    
+    navMenu.title           = @"Please Select";
+    navMenu.titleBgColor    = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:1];
+    navMenu.titleFont       = [UIFont boldSystemFontOfSize:15];
+    navMenu.titleColor      = [UIColor whiteColor];
+    navMenu.titleAlignment  = NSTextAlignmentLeft;
+    navMenu.titleEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    
+    navMenu.rotateIcon      = [UIImage imageNamed:@"arrowIcon3"];
+    navMenu.rotateIconSize  = CGSizeMake(15, 15);
+    
+    navMenu.optionBgColor       = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
+    navMenu.optionFont          = [UIFont systemFontOfSize:13];
+    navMenu.optionTextColor     = [UIColor blackColor];
+    navMenu.optionTextAlignment = NSTextAlignmentLeft;
+    navMenu.optionNumberOfLines = 0;
+    navMenu.optionLineColor     = [UIColor whiteColor];
+    navMenu.optionIconSize      = CGSizeMake(15, 15);
+    
+    [self.navigationController.navigationBar addSubview:navMenu];
+    
+    
+    
     
     // ----------------------- menu1 ---------------------------
+    UIView *bgview = [[UIView alloc] initWithFrame:CGRectMake(20, 200, 150, 40)];
+    [self.view addSubview:bgview];
+    
     menu1 = [[LMJDropdownMenu alloc] init];
-    [menu1 setFrame:CGRectMake(20, 80, 150, 40)];
+    [menu1 setFrame:CGRectMake(0, 0, 150, 40)];
     menu1.dataSource = self;
     menu1.delegate   = self;
     
@@ -64,12 +102,12 @@
     menu1.optionLineColor     = [UIColor whiteColor];
     menu1.optionIconSize      = CGSizeMake(15, 15);
     
-    [self.view addSubview:menu1];
+    [bgview addSubview:menu1];
     
     
     
     // ----------------------- menu2 ---------------------------
-    menu2 = [[LMJDropdownMenu alloc] initWithFrame:CGRectMake(200, 80, 150, 40)];
+    menu2 = [[LMJDropdownMenu alloc] initWithFrame:CGRectMake(200, 200, 150, 40)];
     menu2.dataSource = self;
     menu2.delegate   = self;
 
@@ -97,28 +135,11 @@
 
     [self.view addSubview:menu2];
     
-    
-    [self buildGotoStoryboardPageBtn];
-}
-
-- (void)buildGotoStoryboardPageBtn{
-    UIButton * demoAddToXibPageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [demoAddToXibPageBtn setTitle:@"DemoAddToXibPage >>>" forState:UIControlStateNormal];
-    [demoAddToXibPageBtn setBackgroundColor:[UIColor grayColor]];
-    [demoAddToXibPageBtn setFrame:CGRectMake(20, 550, 300, 30)];
-    [demoAddToXibPageBtn addTarget:self action:@selector(clickDemoAddToXibPageBtn) forControlEvents:UIControlEventTouchUpInside];
-    demoAddToXibPageBtn.layer.cornerRadius = 3;
-    [self.view addSubview:demoAddToXibPageBtn];
-}
-
-- (void)clickDemoAddToXibPageBtn {
-    Demo_StoryboardVC * vc = [[UIStoryboard storyboardWithName:@"Demo" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"Demo_StoryboardVC"];
-    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - LMJDropdownMenu DataSource
 - (NSUInteger)numberOfOptionsInDropdownMenu:(LMJDropdownMenu *)menu{
-    if (menu == menu1) {
+    if (menu == navMenu || menu == menu1) {
         return _menu1OptionTitles.count;
     } else if (menu == menu2) {
         return _menu2OptionTitles.count;
@@ -127,7 +148,7 @@
     }
 }
 - (CGFloat)dropdownMenu:(LMJDropdownMenu *)menu heightForOptionAtIndex:(NSUInteger)index{
-    if (menu == menu1) {
+    if (menu == navMenu || menu == menu1) {
         return 30;
     } else if (menu == menu2) {
         return 40;
@@ -136,7 +157,7 @@
     }
 }
 - (NSString *)dropdownMenu:(LMJDropdownMenu *)menu titleForOptionAtIndex:(NSUInteger)index{
-    if (menu == menu1) {
+    if (menu == navMenu || menu == menu1) {
         return _menu1OptionTitles[index];
     } else if (menu == menu2) {
         return _menu2OptionTitles[index];
@@ -145,7 +166,7 @@
     }
 }
 - (UIImage *)dropdownMenu:(LMJDropdownMenu *)menu iconForOptionAtIndex:(NSUInteger)index{
-    if (menu == menu1) {
+    if (menu == navMenu || menu == menu1) {
         return [UIImage imageNamed:_menu1OptionIcons[index]];
     } else {
         return nil;
@@ -153,7 +174,9 @@
 }
 #pragma mark - LMJDropdownMenu Delegate
 - (void)dropdownMenu:(LMJDropdownMenu *)menu didSelectOptionAtIndex:(NSUInteger)index optionTitle:(NSString *)title{
-    if (menu == menu1) {
+    if (menu == navMenu) {
+        NSLog(@"你选择了(you selected)：navMenu，index: %ld - title: %@", index, title);
+    } else if (menu == menu1) {
         NSLog(@"你选择了(you selected)：menu1，index: %ld - title: %@", index, title);
     } else if (menu == menu2) {
         NSLog(@"你选择了(you selected)：menu2，index: %ld - title: %@", index, title);
@@ -161,14 +184,18 @@
 }
 
 - (void)dropdownMenuWillShow:(LMJDropdownMenu *)menu{
-    if (menu == menu1) {
+    if (menu == navMenu) {
+        NSLog(@"--将要显示(will appear)--navMenu");
+    } else if (menu == menu1) {
         NSLog(@"--将要显示(will appear)--menu1");
     } else if (menu == menu2) {
         NSLog(@"--将要显示(will appear)--menu2");
     }
 }
 - (void)dropdownMenuDidShow:(LMJDropdownMenu *)menu{
-    if (menu == menu1) {
+    if (menu == navMenu) {
+        NSLog(@"--已经显示(did appear)--navMenu");
+    } else if (menu == menu1) {
         NSLog(@"--已经显示(did appear)--menu1");
     } else if (menu == menu2) {
         NSLog(@"--已经显示(did appear)--menu2");
@@ -176,19 +203,27 @@
 }
 
 - (void)dropdownMenuWillHidden:(LMJDropdownMenu *)menu{
-    if (menu == menu1) {
+    if (menu == navMenu) {
+        NSLog(@"--将要隐藏(will disappear)--navMenu");
+    } else if (menu == menu1) {
         NSLog(@"--将要隐藏(will disappear)--menu1");
     } else if (menu == menu2) {
         NSLog(@"--将要隐藏(will disappear)--menu2");
     }
 }
 - (void)dropdownMenuDidHidden:(LMJDropdownMenu *)menu{
-    if (menu == menu1) {
+    if (menu == navMenu) {
+        NSLog(@"--已经隐藏(did disappear)--navMenu");
+    } else if (menu == menu1) {
         NSLog(@"--已经隐藏(did disappear)--menu1");
     } else if (menu == menu2) {
         NSLog(@"--已经隐藏(did disappear)--menu2");
     }
 }
 
+- (void)dealloc {
+    [navMenu removeFromSuperview];
+    navMenu = nil;
+}
 
 @end
