@@ -17,8 +17,8 @@
 		E43909A2229A97A8002BD570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43909A1229A97A8002BD570 /* Assets.xcassets */; };
 		E4557F3F2535A31000D7350F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4557F3D2535A31000D7350F /* ViewController.m */; };
 		E4557F422535A3CB00D7350F /* Demo-BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4557F412535A3CB00D7350F /* Demo-BaseVC.m */; };
-		E4BC261025372DE000C60923 /* Demo-TableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */; };
-		E4BC261425372E9200C60923 /* Demo_TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4BC261325372E9200C60923 /* Demo_TableView.storyboard */; };
+		E4BC2647253882BD00C60923 /* Demo_TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4BC2644253882BD00C60923 /* Demo_TableView.storyboard */; };
+		E4BC2648253882BD00C60923 /* Demo-TableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BC2646253882BD00C60923 /* Demo-TableViewCellVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		E4557F3E2535A31000D7350F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E4557F402535A3CB00D7350F /* Demo-BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-BaseVC.h"; sourceTree = "<group>"; };
 		E4557F412535A3CB00D7350F /* Demo-BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-BaseVC.m"; sourceTree = "<group>"; };
-		E4BC260E25372DE000C60923 /* Demo-TableViewCellVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-TableViewCellVC.h"; sourceTree = "<group>"; };
-		E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-TableViewCellVC.m"; sourceTree = "<group>"; };
-		E4BC261325372E9200C60923 /* Demo_TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demo_TableView.storyboard; sourceTree = "<group>"; };
+		E4BC2644253882BD00C60923 /* Demo_TableView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Demo_TableView.storyboard; sourceTree = "<group>"; };
+		E4BC2645253882BD00C60923 /* Demo-TableViewCellVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Demo-TableViewCellVC.h"; sourceTree = "<group>"; };
+		E4BC2646253882BD00C60923 /* Demo-TableViewCellVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Demo-TableViewCellVC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 				E43909862297E2B0002BD570 /* AppDelegateAndRootVC */,
 				E43909882297E433002BD570 /* Demo-Base */,
 				994F530223B0D9B40044643E /* Demo-Storyboard */,
-				E4BC260D25372D9400C60923 /* Demo-UITableViewCell */,
+				E4BC26432538829200C60923 /* Demo-UITableViewCell */,
 				E43909872297E2EB002BD570 /* Supporting Files */,
 			);
 			path = LMJDropdownMenuExample;
@@ -135,14 +135,14 @@
 			path = LMJDropdownMenu;
 			sourceTree = "<group>";
 		};
-		E4BC260D25372D9400C60923 /* Demo-UITableViewCell */ = {
+		E4BC26432538829200C60923 /* Demo-UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				E4BC260E25372DE000C60923 /* Demo-TableViewCellVC.h */,
-				E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */,
-				E4BC261325372E9200C60923 /* Demo_TableView.storyboard */,
+				E4BC2644253882BD00C60923 /* Demo_TableView.storyboard */,
+				E4BC2645253882BD00C60923 /* Demo-TableViewCellVC.h */,
+				E4BC2646253882BD00C60923 /* Demo-TableViewCellVC.m */,
 			);
-			name = "Demo-UITableViewCell";
+			path = "Demo-UITableViewCell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4BC261425372E9200C60923 /* Demo_TableView.storyboard in Resources */,
+				E4BC2647253882BD00C60923 /* Demo_TableView.storyboard in Resources */,
 				E43909612297E299002BD570 /* LaunchScreen.storyboard in Resources */,
 				E43909A2229A97A8002BD570 /* Assets.xcassets in Resources */,
 				E439095C2297E297002BD570 /* Main.storyboard in Resources */,
@@ -217,7 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4BC261025372DE000C60923 /* Demo-TableViewCellVC.m in Sources */,
+				E4BC2648253882BD00C60923 /* Demo-TableViewCellVC.m in Sources */,
 				E439098C2297E4C2002BD570 /* LMJDropdownMenu.m in Sources */,
 				E43909642297E299002BD570 /* main.m in Sources */,
 				E43909562297E297002BD570 /* AppDelegate.m in Sources */,
