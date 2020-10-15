@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'LMJDropdownMenu'
-s.version      = '2.1.0'
+s.version      = '3.0.0_beta'
 s.summary      = 'An easy way to use dropdown-nemu'
 s.homepage     = 'https://github.com/JerryLMJ/LMJDropdownMenu'
 s.license      = {:type => 'MIT', :file => 'LICENSE' }

@@ -81,25 +81,25 @@
 
 ## Update log      
 
-- **2020.10.15 (3.0.0_beta) : **             
+- **2020.10.15（3.0.0_beta）：**             
 🎉 latest 3.0.0 _beta version has support for various scenarios, including navigation, storyboard, UITableViewCell, etc, and whether the parent view space enough, can be normal !!!                 
 This update reconstructs the drop-down list to accommodate the lack of space in the parent control and to meet the needs of a variety of scenarios.                   
 After the Beta issues are collected, a 3.0.0 Release will be released as soon as possible.  
 ⚠️ By 2.x.x Version upgraded to 3.0.0 _beta version of the developers need to pay attention to: the Api interface no change, but the inside of the drop-down list display is completely different, please pay attention to in the process of replacing handling of drop-down list display space (Beta version do not need to consider the question of whether a parent view space enough).                  
 
-- **2019.12.23 （2.1.0） ：**                      
+- **2019.12.23（2.1.0）：**                      
 Fixed the use of controls in xib and storyboard.                     
 Added a Demo for the use of controls in storyboard.                     
 
-- **2019.7.1 （2.0.3） ：**              
+- **2019.7.1（2.0.3）：**              
 This update, fix the page push process menu disappeared bug.                       
 Added, when there are multiple menus on the page, it will close other menus that have been expanded when the menu is opened.                
 
-- **2019.6.21 （2.0.2）：**                  
+- **2019.6.21（2.0.2）：**                  
 In this update, the demo adds a way to use multiple drop-down menus for the same view, and a new demonstration of menu style Settings.                                  
 Optimize the layout of drop-down options.                            
 
-- **2019.6.5 （2.0.1）：**                 
+- **2019.6.5（2.0.1）：**                 
 The update changed the proxy method: by ` dropdownMenu:didSelectOptionAtIndex:` change to ` dropdownMenu:didSelectOptionAtIndex:optionTitle:icon:`.                        
 ⚠️ please upgrade version of the proxy method users pay attention to modify the code!    
                 
