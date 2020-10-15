@@ -10,32 +10,16 @@
 		994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994F530423B0D9F10044643E /* Demo-StoryboardVC.m */; };
 		994F530723B0DA060044643E /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994F530623B0DA060044643E /* Demo.storyboard */; };
 		E43909562297E297002BD570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909552297E297002BD570 /* AppDelegate.m */; };
-		E43909592297E297002BD570 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909582297E297002BD570 /* ViewController.m */; };
 		E439095C2297E297002BD570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E439095A2297E297002BD570 /* Main.storyboard */; };
 		E43909612297E299002BD570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E439095F2297E299002BD570 /* LaunchScreen.storyboard */; };
 		E43909642297E299002BD570 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909632297E299002BD570 /* main.m */; };
-		E439096E2297E299002BD570 /* LMJDropdownMenuExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E439096D2297E299002BD570 /* LMJDropdownMenuExampleTests.m */; };
-		E43909792297E299002BD570 /* LMJDropdownMenuExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909782297E299002BD570 /* LMJDropdownMenuExampleUITests.m */; };
 		E439098C2297E4C2002BD570 /* LMJDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E439098B2297E4C2002BD570 /* LMJDropdownMenu.m */; };
 		E43909A2229A97A8002BD570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E43909A1229A97A8002BD570 /* Assets.xcassets */; };
+		E4557F3F2535A31000D7350F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4557F3D2535A31000D7350F /* ViewController.m */; };
+		E4557F422535A3CB00D7350F /* Demo-BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4557F412535A3CB00D7350F /* Demo-BaseVC.m */; };
+		E4BC261025372DE000C60923 /* Demo-TableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */; };
+		E4BC261425372E9200C60923 /* Demo_TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4BC261325372E9200C60923 /* Demo_TableView.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E439096A2297E299002BD570 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E43909492297E297002BD570 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E43909502297E297002BD570;
-			remoteInfo = LMJDropdownMenuExample;
-		};
-		E43909752297E299002BD570 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E43909492297E297002BD570 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E43909502297E297002BD570;
-			remoteInfo = LMJDropdownMenuExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		994F530323B0D9F10044643E /* Demo-StoryboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-StoryboardVC.h"; sourceTree = "<group>"; };
@@ -44,39 +28,24 @@
 		E43909512297E297002BD570 /* LMJDropdownMenuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMJDropdownMenuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43909542297E297002BD570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E43909552297E297002BD570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E43909572297E297002BD570 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E43909582297E297002BD570 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E439095B2297E297002BD570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E43909602297E299002BD570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E43909622297E299002BD570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E43909632297E299002BD570 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E43909692297E299002BD570 /* LMJDropdownMenuExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMJDropdownMenuExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E439096D2297E299002BD570 /* LMJDropdownMenuExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMJDropdownMenuExampleTests.m; sourceTree = "<group>"; };
-		E439096F2297E299002BD570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E43909742297E299002BD570 /* LMJDropdownMenuExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMJDropdownMenuExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E43909782297E299002BD570 /* LMJDropdownMenuExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMJDropdownMenuExampleUITests.m; sourceTree = "<group>"; };
-		E439097A2297E299002BD570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E439098A2297E4C2002BD570 /* LMJDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJDropdownMenu.h; sourceTree = "<group>"; };
 		E439098B2297E4C2002BD570 /* LMJDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMJDropdownMenu.m; sourceTree = "<group>"; };
 		E43909A1229A97A8002BD570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E4557F3D2535A31000D7350F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E4557F3E2535A31000D7350F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E4557F402535A3CB00D7350F /* Demo-BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-BaseVC.h"; sourceTree = "<group>"; };
+		E4557F412535A3CB00D7350F /* Demo-BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-BaseVC.m"; sourceTree = "<group>"; };
+		E4BC260E25372DE000C60923 /* Demo-TableViewCellVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-TableViewCellVC.h"; sourceTree = "<group>"; };
+		E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-TableViewCellVC.m"; sourceTree = "<group>"; };
+		E4BC261325372E9200C60923 /* Demo_TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demo_TableView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E439094E2297E297002BD570 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909662297E299002BD570 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909712297E299002BD570 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -101,8 +70,6 @@
 			children = (
 				E43909892297E453002BD570 /* LMJDropdownMenu */,
 				E43909532297E297002BD570 /* LMJDropdownMenuExample */,
-				E439096C2297E299002BD570 /* LMJDropdownMenuExampleTests */,
-				E43909772297E299002BD570 /* LMJDropdownMenuExampleUITests */,
 				E43909522297E297002BD570 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				E43909512297E297002BD570 /* LMJDropdownMenuExample.app */,
-				E43909692297E299002BD570 /* LMJDropdownMenuExampleTests.xctest */,
-				E43909742297E299002BD570 /* LMJDropdownMenuExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,39 +85,24 @@
 		E43909532297E297002BD570 /* LMJDropdownMenuExample */ = {
 			isa = PBXGroup;
 			children = (
+				E43909862297E2B0002BD570 /* AppDelegateAndRootVC */,
 				E43909882297E433002BD570 /* Demo-Base */,
 				994F530223B0D9B40044643E /* Demo-Storyboard */,
+				E4BC260D25372D9400C60923 /* Demo-UITableViewCell */,
 				E43909872297E2EB002BD570 /* Supporting Files */,
-				E43909862297E2B0002BD570 /* AppDelegate */,
 			);
 			path = LMJDropdownMenuExample;
 			sourceTree = "<group>";
 		};
-		E439096C2297E299002BD570 /* LMJDropdownMenuExampleTests */ = {
+		E43909862297E2B0002BD570 /* AppDelegateAndRootVC */ = {
 			isa = PBXGroup;
 			children = (
-				E439096D2297E299002BD570 /* LMJDropdownMenuExampleTests.m */,
-				E439096F2297E299002BD570 /* Info.plist */,
-			);
-			path = LMJDropdownMenuExampleTests;
-			sourceTree = "<group>";
-		};
-		E43909772297E299002BD570 /* LMJDropdownMenuExampleUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E43909782297E299002BD570 /* LMJDropdownMenuExampleUITests.m */,
-				E439097A2297E299002BD570 /* Info.plist */,
-			);
-			path = LMJDropdownMenuExampleUITests;
-			sourceTree = "<group>";
-		};
-		E43909862297E2B0002BD570 /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
+				E4557F3E2535A31000D7350F /* ViewController.h */,
+				E4557F3D2535A31000D7350F /* ViewController.m */,
 				E43909542297E297002BD570 /* AppDelegate.h */,
 				E43909552297E297002BD570 /* AppDelegate.m */,
 			);
-			path = AppDelegate;
+			path = AppDelegateAndRootVC;
 			sourceTree = "<group>";
 		};
 		E43909872297E2EB002BD570 /* Supporting Files */ = {
@@ -170,8 +120,8 @@
 		E43909882297E433002BD570 /* Demo-Base */ = {
 			isa = PBXGroup;
 			children = (
-				E43909572297E297002BD570 /* ViewController.h */,
-				E43909582297E297002BD570 /* ViewController.m */,
+				E4557F402535A3CB00D7350F /* Demo-BaseVC.h */,
+				E4557F412535A3CB00D7350F /* Demo-BaseVC.m */,
 			);
 			path = "Demo-Base";
 			sourceTree = "<group>";
@@ -183,6 +133,16 @@
 				E439098B2297E4C2002BD570 /* LMJDropdownMenu.m */,
 			);
 			path = LMJDropdownMenu;
+			sourceTree = "<group>";
+		};
+		E4BC260D25372D9400C60923 /* Demo-UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E4BC260E25372DE000C60923 /* Demo-TableViewCellVC.h */,
+				E4BC260F25372DE000C60923 /* Demo-TableViewCellVC.m */,
+				E4BC261325372E9200C60923 /* Demo_TableView.storyboard */,
+			);
+			name = "Demo-UITableViewCell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,42 +165,6 @@
 			productReference = E43909512297E297002BD570 /* LMJDropdownMenuExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E43909682297E299002BD570 /* LMJDropdownMenuExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E43909802297E299002BD570 /* Build configuration list for PBXNativeTarget "LMJDropdownMenuExampleTests" */;
-			buildPhases = (
-				E43909652297E299002BD570 /* Sources */,
-				E43909662297E299002BD570 /* Frameworks */,
-				E43909672297E299002BD570 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E439096B2297E299002BD570 /* PBXTargetDependency */,
-			);
-			name = LMJDropdownMenuExampleTests;
-			productName = LMJDropdownMenuExampleTests;
-			productReference = E43909692297E299002BD570 /* LMJDropdownMenuExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E43909732297E299002BD570 /* LMJDropdownMenuExampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E43909832297E299002BD570 /* Build configuration list for PBXNativeTarget "LMJDropdownMenuExampleUITests" */;
-			buildPhases = (
-				E43909702297E299002BD570 /* Sources */,
-				E43909712297E299002BD570 /* Frameworks */,
-				E43909722297E299002BD570 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E43909762297E299002BD570 /* PBXTargetDependency */,
-			);
-			name = LMJDropdownMenuExampleUITests;
-			productName = LMJDropdownMenuExampleUITests;
-			productReference = E43909742297E299002BD570 /* LMJDropdownMenuExampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -252,14 +176,6 @@
 				TargetAttributes = {
 					E43909502297E297002BD570 = {
 						CreatedOnToolsVersion = 10.2.1;
-					};
-					E43909682297E299002BD570 = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = E43909502297E297002BD570;
-					};
-					E43909732297E299002BD570 = {
-						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = E43909502297E297002BD570;
 					};
 				};
 			};
@@ -277,8 +193,6 @@
 			projectRoot = "";
 			targets = (
 				E43909502297E297002BD570 /* LMJDropdownMenuExample */,
-				E43909682297E299002BD570 /* LMJDropdownMenuExampleTests */,
-				E43909732297E299002BD570 /* LMJDropdownMenuExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -288,24 +202,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BC261425372E9200C60923 /* Demo_TableView.storyboard in Resources */,
 				E43909612297E299002BD570 /* LaunchScreen.storyboard in Resources */,
 				E43909A2229A97A8002BD570 /* Assets.xcassets in Resources */,
 				E439095C2297E297002BD570 /* Main.storyboard in Resources */,
 				994F530723B0DA060044643E /* Demo.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909672297E299002BD570 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909722297E299002BD570 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,44 +217,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E43909592297E297002BD570 /* ViewController.m in Sources */,
+				E4BC261025372DE000C60923 /* Demo-TableViewCellVC.m in Sources */,
 				E439098C2297E4C2002BD570 /* LMJDropdownMenu.m in Sources */,
 				E43909642297E299002BD570 /* main.m in Sources */,
 				E43909562297E297002BD570 /* AppDelegate.m in Sources */,
 				994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909652297E299002BD570 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E439096E2297E299002BD570 /* LMJDropdownMenuExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E43909702297E299002BD570 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E43909792297E299002BD570 /* LMJDropdownMenuExampleUITests.m in Sources */,
+				E4557F422535A3CB00D7350F /* Demo-BaseVC.m in Sources */,
+				E4557F3F2535A31000D7350F /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E439096B2297E299002BD570 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E43909502297E297002BD570 /* LMJDropdownMenuExample */;
-			targetProxy = E439096A2297E299002BD570 /* PBXContainerItemProxy */;
-		};
-		E43909762297E299002BD570 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E43909502297E297002BD570 /* LMJDropdownMenuExample */;
-			targetProxy = E43909752297E299002BD570 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E439095A2297E297002BD570 /* Main.storyboard */ = {
@@ -523,80 +397,6 @@
 			};
 			name = Release;
 		};
-		E43909812297E299002BD570 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = LMJDropdownMenuExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LMJ.LMJDropdownMenuExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LMJDropdownMenuExample.app/LMJDropdownMenuExample";
-			};
-			name = Debug;
-		};
-		E43909822297E299002BD570 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = LMJDropdownMenuExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LMJ.LMJDropdownMenuExampleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LMJDropdownMenuExample.app/LMJDropdownMenuExample";
-			};
-			name = Release;
-		};
-		E43909842297E299002BD570 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = LMJDropdownMenuExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LMJ.LMJDropdownMenuExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LMJDropdownMenuExample;
-			};
-			name = Debug;
-		};
-		E43909852297E299002BD570 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BEDD2XY992;
-				INFOPLIST_FILE = LMJDropdownMenuExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.LMJ.LMJDropdownMenuExampleUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LMJDropdownMenuExample;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,24 +414,6 @@
 			buildConfigurations = (
 				E439097E2297E299002BD570 /* Debug */,
 				E439097F2297E299002BD570 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E43909802297E299002BD570 /* Build configuration list for PBXNativeTarget "LMJDropdownMenuExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E43909812297E299002BD570 /* Debug */,
-				E43909822297E299002BD570 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E43909832297E299002BD570 /* Build configuration list for PBXNativeTarget "LMJDropdownMenuExampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E43909842297E299002BD570 /* Debug */,
-				E43909852297E299002BD570 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
