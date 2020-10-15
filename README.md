@@ -9,15 +9,18 @@
 ![](https://img.shields.io/badge/language-oc-orange.svg)
 ![](https://img.shields.io/cocoapods/l/LMJDropdownMenu.svg?style=flat)
 
-- 一个简单好用的下拉菜单控件
-       
-          
+- 一个简单好用的下拉菜单控件                           
+
+🎉欢迎大家使用最新的 Beta 版本，同时也恳请各位开发者提供在使用 Beta 版本中发现的问题，以帮助我尽快推出 3.0.0 Release 版本供大家使用，抱拳！                     
+     
+      
 ## 效果                              
 ![](https://github.com/JerryLMJ/LMJDropdownMenu/raw/master/demo1.gif)        
 
 
 ## 使用场景
-- ⚠️请确保使用此控件的父视图有足够的空间显示控件的下拉列表
+- 3.0.0_beta 版本已经支持各种场景，包括导航栏、storyboard、UITableViewCell等，并且无论父视图空间是否足够都可以正常显示                     
+- ⚠️如果你使用的是 2.x.x 版本，请确保使用此控件的父视图有足够的空间显示控件的下拉列表
 
 
 ## 使用
@@ -27,7 +30,7 @@
     * 将 `LMJDropdownMenu` 文件拖拽到工程中
     * 导入头文件`#import "LMJDropdownMenu.h"`
     
-
+    
 ## 属性及方法
 | 属性 | 描述 |
 | --- | ---
@@ -77,6 +80,12 @@
 
 
 ## 更新日志
+
+- **2020.10.15（3.0.0_beta）：**                                                                    
+🎉最新的3.0.0_beta版本已经支持各种场景，包括导航栏、storyboard、UITableViewCell等，并且无论父视图空间是否足够，都可正常显示！！！
+本次更新重构下拉列表以适配父控件空间不足的情况，并满足多种场景的使用需求。                     
+在收集完 Beta 版本的问题后，会尽快推出3.0.0的 Release 版本。                        
+⚠️ 由 2.x.x 版本升级为 3.0.0_beta 版本的同学需要注意：Api接口无变化，但下拉列表内部的展示方式已经完全不同，请注意替换过程中对下拉列表展示空间的处理（Beta 版本无需考虑父视图空间是否足够的问题）。                     
 
 - **2019.12.23（2.1.0）：**                                                                    
 修复控件在xib和storyboard中的使用。                       

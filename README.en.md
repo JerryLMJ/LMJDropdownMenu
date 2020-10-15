@@ -9,7 +9,9 @@
 ![](https://img.shields.io/badge/language-oc-orange.svg)
 ![](https://img.shields.io/cocoapods/l/LMJDropdownMenu.svg?style=flat)
 
-- A simple and easy to use drop-down menu control
+- A simple and easy to use drop-down menu control                     
+
+🎉 Welcome to use the latest Beta version, at the same time, also please you developers in the use of problems found during the Beta version, to help me as soon as possible to launch 3.0.0 Release version for your use, thanks!                    
 
 
 ## Effect
@@ -17,9 +19,10 @@
 
 
 ## Support what kinds of scenarios to use
-- ⚠️Make sure that the parent view that USES this control has enough space to display the control's drop-down list                      
-
-
+- The 3.0.0_beta version already supports a variety of scenarios, including navigation bars, storyboards, UITableViewCell, etc., and displays normally regardless of whether the superview space is sufficient or not.                        
+- ⚠️If you are using the 2.x.x version, make sure that the superview that USES this control has enough space to display a drop-down list of controls.                    
+         
+          
 ## Usage
  * Use cocoapods:                     
 `pod 'LMJDropdownMenu'`                  
@@ -76,7 +79,15 @@
 | - dropdownMenu: didSelectOptionAtIndex: optionTitle: | optional | click drop-down list some options
 
 
-## Update log   
+## Update log      
+
+- **2020.10.15 (3.0.0_beta) : **             
+🎉 latest 3.0.0 _beta version has support for various scenarios, including navigation, storyboard, UITableViewCell, etc, and whether the parent view space enough, can be normal !!!                          
+This update reconstructs the drop-down list to accommodate the lack of space in the parent control and to meet the needs of a variety of scenarios.                     
+
+After the Beta issues are collected, a 3.0.0 Release will be released as soon as possible.  
+⚠️ By 2.x.x Version upgraded to 3.0.0 _beta version of the developers need to pay attention to: the Api interface no change, but the inside of the drop-down list display is completely different, please pay attention to in the process of replacing handling of drop-down list display space (Beta version do not need to consider the question of whether a parent view space enough).
+
 
 - **2019.12.23 （2.1.0） ：**                      
 Fixed the use of controls in xib and storyboard.                     
