@@ -83,9 +83,7 @@
 
 - **2020.10.15 (3.0.0_beta) : **             
 🎉 latest 3.0.0 _beta version has support for various scenarios, including navigation, storyboard, UITableViewCell, etc, and whether the parent view space enough, can be normal !!!                 
-
 This update reconstructs the drop-down list to accommodate the lack of space in the parent control and to meet the needs of a variety of scenarios.                   
-
 After the Beta issues are collected, a 3.0.0 Release will be released as soon as possible.  
 ⚠️ By 2.x.x Version upgraded to 3.0.0 _beta version of the developers need to pay attention to: the Api interface no change, but the inside of the drop-down list display is completely different, please pay attention to in the process of replacing handling of drop-down list display space (Beta version do not need to consider the question of whether a parent view space enough).                  
 
