@@ -132,9 +132,11 @@
     menu2.optionNumberOfLines = 0;
     menu2.optionLineColor     = [UIColor blackColor];
 //    menu2.optionIconSize      = CGSizeMake(15, 15);
+    
+    menu2.optionsListLimitHeight = 100;
+    menu2.showsVerticalScrollIndicatorOfOptionsList = NO;
 
     [self.view addSubview:menu2];
-    
 }
 
 #pragma mark - LMJDropdownMenu DataSource

@@ -22,8 +22,6 @@
 
 @implementation LMJDropdownMenu
 {
-    CGFloat _listHeight;
-    NSMutableArray * _cellHeights;
     BOOL _isOpened;
 }
 
@@ -75,6 +73,8 @@
     _optionIconSize      = CGSizeMake(0, 0);
 
     _animateTime         = 0.25f;
+    
+    _optionsListLimitHeight = 0;
     
     _isOpened = NO;
 }
@@ -165,8 +165,16 @@
     self.mainBtn.titleEdgeInsets = titleEdgeInsets;
 }
 
+- (void)setShowsVerticalScrollIndicatorOfOptionsList:(BOOL)showsVerticalScrollIndicatorOfOptionsList {
+    _optionsList.showsVerticalScrollIndicator = showsVerticalScrollIndicatorOfOptionsList;
+}
+
 
 #pragma mark - Get Methods
+- (BOOL)showsVerticalScrollIndicatorOfOptionsList {
+    return _optionsList.showsVerticalScrollIndicator;
+}
+
 - (UIView *)coverView {
     UIWindow *window = [self getCurrentKeyWindow];
     if (_coverView == nil) {
@@ -213,13 +221,17 @@
     [self reloadOptionsData];
     
     // 菜单高度计算
-    NSUInteger count = [self.dataSource numberOfOptionsInDropdownMenu:self];
-    _cellHeights = [NSMutableArray arrayWithCapacity:count];
-    _listHeight = 0;
-    for (int i = 0; i < count; i++) {
-        CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:i];
-        [_cellHeights addObject:@(cHeight)];
-        _listHeight += cHeight;
+    CGFloat listHeight = 0;
+    if (self.optionsListLimitHeight <= 0) { // 当未设置下拉菜单最小展示高度
+        NSUInteger count = [self.dataSource numberOfOptionsInDropdownMenu:self];
+        for (int i = 0; i < count; i++) {
+            CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:i];
+            listHeight += cHeight;
+        }
+        _optionsList.scrollEnabled = NO;
+    } else {
+        listHeight = self.optionsListLimitHeight;
+        _optionsList.scrollEnabled = YES;
     }
     
     // 执行展开动画
@@ -229,9 +241,9 @@
         UIButton *mainBtn     = weakSelf.mainBtn;
         UITableView *listView = weakSelf.optionsList;
         
-        floatView.frame = CGRectMake(floatView.frame.origin.x, floatView.frame.origin.y, floatView.frame.size.width, mainBtn.frame.size.height + self->_listHeight);
+        floatView.frame = CGRectMake(floatView.frame.origin.x, floatView.frame.origin.y, floatView.frame.size.width, mainBtn.frame.size.height + listHeight);
         weakSelf.arrowMark.transform = CGAffineTransformMakeRotation(M_PI);
-        listView.frame = CGRectMake(listView.frame.origin.x, listView.frame.origin.y, listView.frame.size.width, self->_listHeight);
+        listView.frame = CGRectMake(listView.frame.origin.x, listView.frame.origin.y, listView.frame.size.width, listHeight);
         
     }completion:^(BOOL finished) {
         if ([self.delegate respondsToSelector:@selector(dropdownMenuDidShow:)]) {
@@ -323,7 +335,7 @@
         [cell addSubview:line];
         //---------------------------------------------------------------------------
     }
-    CGFloat cHeight = [_cellHeights[indexPath.row] floatValue];
+    CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:indexPath.row];
     
     UILabel * titleLabel = [cell viewWithTag:999];
     titleLabel.text = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
