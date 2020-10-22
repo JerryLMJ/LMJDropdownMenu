@@ -56,6 +56,9 @@
 | optionLineColor | option to divide line color
 | optionIconSize | optionIconSize, default (15,15)
 | --- | ---
+| optionsListLimitHeight | The maximum height of the drop-down list, beyond which the options can be scrolled.  default 0.（When optionsListLimitHeight <= 0, the drop-down list shows all options）
+| showsVerticalScrollIndicatorOfOptionsList | Whether to display a Scroll Indicator for optionsList
+| --- | ---
 | animateTime | animateTime, default 0.25
 
 | Method | Description |
@@ -81,6 +84,9 @@
 
 ## Update log      
 
+- **2020.10.22（3.0.1）：**             
+This update adds a height limiting property to the list of options, as well as related Settings. When there are too many options, you can scroll through the options list to show all the options.                                               
+                
 - **2020.10.15（3.0.0）：**             
 🎉 latest 3.0.0 version has support for various scenarios, including navigation, storyboard, UITableViewCell, etc, and whether the parent view space enough, can be normal !!!                 
 This update reconstructs the drop-down list to accommodate the lack of space in the parent control and to meet the needs of a variety of scenarios.                   
