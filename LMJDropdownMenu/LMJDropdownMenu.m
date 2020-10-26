@@ -63,7 +63,8 @@
 
     _rotateIcon          = nil;
     _rotateIconSize      = CGSizeMake(15, 15);
-    _rotateIconMargin         = 7.5;
+    _rotateIconMargin    = 7.5;
+    _rotateIconTint      = [UIColor blackColor];
 
     _optionBgColor       = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
     _optionFont          = [UIFont systemFontOfSize:13];
@@ -98,6 +99,7 @@
     
     // 旋转尖头
     _arrowMark = [[UIImageView alloc] init];
+    [_arrowMark setTintColor: self.rotateIconTint];
     [_mainBtn addSubview:_arrowMark];
     
     
@@ -115,7 +117,7 @@
     CGFloat height = frame.size.height;
     [_floatView setFrame:CGRectMake(0, 0, width, height)];
     [_mainBtn setFrame:CGRectMake(0, 0, width, height)];
-    [_arrowMark setFrame:CGRectMake(width -7.5 -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMargin -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
     [_optionsList setFrame:CGRectMake(0, height, width, _optionsList.frame.size.height)];
 }
 
@@ -131,7 +133,7 @@
 }
 - (void)setRotateIconSize:(CGSize)rotateIconSize{
     _rotateIconSize = rotateIconSize;
-    [_arrowMark setFrame:CGRectMake(_mainBtn.bounds.size.width -7.5-rotateIconSize.width, (_mainBtn.bounds.size.height -rotateIconSize.height)/2, rotateIconSize.width, rotateIconSize.height)];
+    [_arrowMark setFrame:CGRectMake(_mainBtn.bounds.size.width -self.rotateIconMargin-rotateIconSize.width, (_mainBtn.bounds.size.height -rotateIconSize.height)/2, rotateIconSize.width, rotateIconSize.height)];
 }
 
 - (void)setTitle:(NSString *)title{
