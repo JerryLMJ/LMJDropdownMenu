@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIImage         * rotateIcon;
 @property (nonatomic,assign) CGSize            rotateIconSize;
 @property (nonatomic,assign) CGFloat           rotateIconMargin;
-
+@property (nonatomic,strong) UIColor         * rotateIconTint;
 
 @property (nonatomic,strong) UIColor         * optionBgColor;
 @property (nonatomic,strong) UIFont          * optionFont;
