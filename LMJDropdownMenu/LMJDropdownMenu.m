@@ -48,7 +48,7 @@
     CGFloat height = self.frame.size.height;
     [_floatView setFrame:CGRectMake(_floatView.frame.origin.x, _floatView.frame.origin.y, width, height)];
     [_mainBtn setFrame:CGRectMake(0, 0, width, height)];
-    [_arrowMark setFrame:CGRectMake(width -7.5 -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMargin -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
     [_optionsList setFrame:CGRectMake(0, height, width, _optionsList.frame.size.height)];
 }
 
@@ -63,6 +63,7 @@
 
     _rotateIcon          = nil;
     _rotateIconSize      = CGSizeMake(15, 15);
+    _rotateIconMargin         = 7.5;
 
     _optionBgColor       = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
     _optionFont          = [UIFont systemFontOfSize:13];
