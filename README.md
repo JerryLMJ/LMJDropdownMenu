@@ -46,14 +46,18 @@
 | --- | ---
 | rotateIcon | 下拉旋转箭头图标
 | rotateIconSize | 下拉旋转箭头大小
+| rotateIconMarginRight | 下拉旋转箭头右侧边距，默认7.5
+| rotateIconTint | 下拉旋转箭头颜色
 | --- | ---
 | optionBgColor | 选项背景颜色
 | optionFont | 选项字体
 | optionTextColor | 选项字体颜色
 | optionTextAlignment | 选项文字对齐
 | optionNumberOfLines | 选项文字行数，默认0（多行）
-| optionLineColor | 选项分割线颜色
 | optionIconSize | 选项图标大小，默认(15,15)
+| optionIconMarginRight | 选项图标右侧边距，默认15
+| optionLineColor | 选项分割线颜色
+| optionLineHeight | 选项分割线粗细，默认0.5
 | --- | ---
 | optionsListLimitHeight | 选项列表的最大高度。超出最大高度后，选项可滚动。默认0 （当optionsListLimitHeight <= 0 时，下拉列表将显示所有选项）
 | showsVerticalScrollIndicatorOfOptionsList | 是否展示选项列表的纵向滑块
@@ -84,6 +88,9 @@
 
 ## 更新日志
 
+- **2020.10.27（3.0.2）：**                                                                     
+本次更新增加了多个属性：旋转箭头的右侧边距和颜色、选项图标的右侧边距、选项分割线的高度。                       
+                        
 - **2020.10.22（3.0.1）：**                                                                     
 本次更新增加选项列表的高度限制属性，以及相关设置。当选项过多时，可通过滚动选项列表展示所有选项。                      
                         

@@ -47,14 +47,18 @@
 | --- | ---
 | rotateIcon | drop-down rotation arrow icon
 | rotateIconSize | drop-down rotation arrow size
+| rotateIconMarginRight | right margin of the drop-down rotation arrow, default 7.5
+| rotateIconTint | drop-down rotation arrow tint
 | --- | ---
 | optionBgColor | option background color
 | optionFont | option font
 | optionTextColor | option font color
 | optionTextAlignment | option text alignment
-| optionNumberOfLines | optionNumberOfLines of text, default 0 (multiple lines)
+| optionNumberOfLines | option number of lines of text, default 0 (multiple lines)
+| optionIconSize | option icon size, default (15,15)
+| optionIconMarginRight | option icon right margin, default 15
 | optionLineColor | option to divide line color
-| optionIconSize | optionIconSize, default (15,15)
+| optionLineHeight | option to divide line height, default 0.5
 | --- | ---
 | optionsListLimitHeight | The maximum height of the drop-down list, beyond which the options can be scrolled.  default 0.（When optionsListLimitHeight <= 0, the drop-down list shows all options）
 | showsVerticalScrollIndicatorOfOptionsList | Whether to display a Scroll Indicator for optionsList
@@ -84,6 +88,9 @@
 
 ## Update log      
 
+- **2020.10.27（3.0.2）：**             
+This update adds several properties: the right margin and color of the rotation arrow, the right margin of the option icon, and the height of the option divider.              
+                  
 - **2020.10.22（3.0.1）：**             
 This update adds a height limiting property to the list of options, as well as related Settings. When there are too many options, you can scroll through the options list to show all the options.                                               
                 
