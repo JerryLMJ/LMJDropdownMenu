@@ -28,7 +28,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self initPropertys];
+        [self initProperties];
         [self initViews];
         [self initFrame:self.frame];
     }
@@ -37,7 +37,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self initPropertys];
+    [self initProperties];
     [self initViews];
     [self initFrame:self.frame];
 }
@@ -48,37 +48,39 @@
     CGFloat height = self.frame.size.height;
     [_floatView setFrame:CGRectMake(_floatView.frame.origin.x, _floatView.frame.origin.y, width, height)];
     [_mainBtn setFrame:CGRectMake(0, 0, width, height)];
-    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMargin -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMarginRight -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
     [_optionsList setFrame:CGRectMake(0, height, width, _optionsList.frame.size.height)];
 }
 
 #pragma mark - Init
-- (void)initPropertys{
-    _title               = @"Please Select";
-    _titleBgColor        = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:1];
-    _titleFont           = [UIFont boldSystemFontOfSize:15];
-    _titleColor          = [UIColor whiteColor];
-    _titleAlignment      = NSTextAlignmentLeft;
-    _titleEdgeInsets     = UIEdgeInsetsMake(0, 10, 0, 10);
+- (void)initProperties{
+    _title                  = @"Please Select";
+    _titleBgColor           = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:1];
+    _titleFont              = [UIFont boldSystemFontOfSize:15];
+    _titleColor             = [UIColor whiteColor];
+    _titleAlignment         = NSTextAlignmentLeft;
+    _titleEdgeInsets        = UIEdgeInsetsMake(0, 10, 0, 10);
 
-    _rotateIcon          = nil;
-    _rotateIconSize      = CGSizeMake(15, 15);
-    _rotateIconMargin    = 7.5;
-    _rotateIconTint      = [UIColor blackColor];
+    _rotateIcon             = nil;
+    _rotateIconSize         = CGSizeMake(15, 15);
+    _rotateIconMarginRight  = 7.5;
+    _rotateIconTint         = [UIColor blackColor];
 
-    _optionBgColor       = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
-    _optionFont          = [UIFont systemFontOfSize:13];
-    _optionTextColor     = [UIColor blackColor];
-    _optionTextAlignment = NSTextAlignmentCenter;
-    _optionNumberOfLines = 0;
-    _optionLineColor     = [UIColor whiteColor];
-    _optionIconSize      = CGSizeMake(0, 0);
+    _optionBgColor          = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
+    _optionFont             = [UIFont systemFontOfSize:13];
+    _optionTextColor        = [UIColor blackColor];
+    _optionTextAlignment    = NSTextAlignmentCenter;
+    _optionNumberOfLines    = 0;
+    _optionIconSize         = CGSizeMake(0, 0);
+    _optionIconMarginRight  = 15;
+    _optionLineColor        = [UIColor whiteColor];
+    _optionLineHeight       = 0.5f;
 
-    _animateTime         = 0.25f;
-    
+    _animateTime            = 0.25f;
+
     _optionsListLimitHeight = 0;
-    
-    _isOpened = NO;
+
+    _isOpened               = NO;
 }
 
 - (void)initViews{
@@ -99,7 +101,7 @@
     
     // 旋转尖头
     _arrowMark = [[UIImageView alloc] init];
-    [_arrowMark setTintColor: self.rotateIconTint];
+    [_arrowMark setTintColor:self.rotateIconTint];
     [_mainBtn addSubview:_arrowMark];
     
     
@@ -117,81 +119,9 @@
     CGFloat height = frame.size.height;
     [_floatView setFrame:CGRectMake(0, 0, width, height)];
     [_mainBtn setFrame:CGRectMake(0, 0, width, height)];
-    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMargin -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+    [_arrowMark setFrame:CGRectMake(width -self.rotateIconMarginRight -self.rotateIconSize.width, (height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
     [_optionsList setFrame:CGRectMake(0, height, width, _optionsList.frame.size.height)];
 }
-
-
-#pragma mark - Set Methods
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    [self initFrame:frame];
-}
-- (void)setRotateIcon:(UIImage *)rotateIcon{
-    _rotateIcon = rotateIcon;
-    [self.arrowMark setImage:rotateIcon];
-}
-- (void)setRotateIconSize:(CGSize)rotateIconSize{
-    _rotateIconSize = rotateIconSize;
-    [_arrowMark setFrame:CGRectMake(_mainBtn.bounds.size.width -self.rotateIconMargin-rotateIconSize.width, (_mainBtn.bounds.size.height -rotateIconSize.height)/2, rotateIconSize.width, rotateIconSize.height)];
-}
-
-- (void)setTitle:(NSString *)title{
-    _title = title;
-    [self.mainBtn setTitle:title forState:UIControlStateNormal];
-}
-- (void)setTitleBgColor:(UIColor *)titleBgColor{
-    _titleBgColor = titleBgColor;
-    [self.mainBtn setBackgroundColor:titleBgColor];
-    [self.arrowMark setBackgroundColor:titleBgColor];
-}
-- (void)setTitleFont:(UIFont *)titleFont{
-    _titleFont = titleFont;
-    self.mainBtn.titleLabel.font = titleFont;
-}
-- (void)setTitleColor:(UIColor *)titleColor{
-    _titleColor = titleColor;
-    [self.mainBtn setTitleColor:titleColor forState:UIControlStateNormal];
-}
-- (void)setTitleAlignment:(NSTextAlignment)titleAlignment{
-    _titleAlignment = titleAlignment;
-    if (titleAlignment == NSTextAlignmentLeft) {
-        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    } else if (titleAlignment == NSTextAlignmentCenter) {
-        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    } else if (titleAlignment == NSTextAlignmentRight) {
-        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    }
-}
-- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets{
-    _titleEdgeInsets = titleEdgeInsets;
-    self.mainBtn.titleEdgeInsets = titleEdgeInsets;
-}
-
-- (void)setShowsVerticalScrollIndicatorOfOptionsList:(BOOL)showsVerticalScrollIndicatorOfOptionsList {
-    _optionsList.showsVerticalScrollIndicator = showsVerticalScrollIndicatorOfOptionsList;
-}
-
-
-#pragma mark - Get Methods
-- (BOOL)showsVerticalScrollIndicatorOfOptionsList {
-    return _optionsList.showsVerticalScrollIndicator;
-}
-
-- (UIView *)coverView {
-    UIWindow *window = [self getCurrentKeyWindow];
-    if (_coverView == nil) {
-        _coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, window.bounds.size.width, window.bounds.size.height)];
-        _coverView.backgroundColor = [UIColor clearColor];
-        [window addSubview:_coverView];
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideDropDown)];
-        tap.delegate = self;
-        [_coverView addGestureRecognizer:tap];
-    }
-    return _coverView;
-}
-
 
 #pragma mark - Action Methods
 - (void)reloadOptionsData{
@@ -333,22 +263,27 @@
         icon.tag = 888;
         [cell addSubview:icon];
         
-        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, 0.5)];
+        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, self.optionLineHeight)];
         line.backgroundColor = self.optionLineColor;
+        line.tag             = 777;
         [cell addSubview:line];
         //---------------------------------------------------------------------------
     }
     CGFloat cHeight = [self.dataSource dropdownMenu:self heightForOptionAtIndex:indexPath.row];
     
     UILabel * titleLabel = [cell viewWithTag:999];
-    titleLabel.text = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
-    titleLabel.frame = CGRectMake(15, 0, self.frame.size.width - 15 -self.optionIconSize.width -15, cHeight);
+    titleLabel.text  = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
+    titleLabel.frame = CGRectMake(15, 0, self.frame.size.width - 15 -self.optionIconSize.width -self.optionIconMarginRight, cHeight);
     
     UIImageView * icon = [cell viewWithTag:888];
     if ([self.dataSource respondsToSelector:@selector(dropdownMenu:iconForOptionAtIndex:)]){
-        icon.image =  [self.dataSource dropdownMenu:self iconForOptionAtIndex:indexPath.row];
+        icon.image = [self.dataSource dropdownMenu:self iconForOptionAtIndex:indexPath.row];
     }
-    icon.frame = CGRectMake(self.frame.size.width -7.5-self.optionIconSize.width, (cHeight - self.optionIconSize.height)/2, self.optionIconSize.width, self.optionIconSize.height);
+    icon.frame = CGRectMake(self.frame.size.width -self.optionIconSize.width -self.optionIconMarginRight, (cHeight - self.optionIconSize.height)/2, self.optionIconSize.width, self.optionIconSize.height);
+    
+    UIView *line = [cell viewWithTag:777];
+    line.frame           = CGRectMake(0, 0, cell.frame.size.width, self.optionLineHeight);
+    line.backgroundColor = self.optionLineColor;
     
     return cell;
 }
@@ -370,5 +305,87 @@
    return  YES;
 }
 
+
+#pragma mark - Get Methods
+- (BOOL)showsVerticalScrollIndicatorOfOptionsList {
+    return _optionsList.showsVerticalScrollIndicator;
+}
+
+- (UIView *)coverView {
+    UIWindow *window = [self getCurrentKeyWindow];
+    if (_coverView == nil) {
+        _coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, window.bounds.size.width, window.bounds.size.height)];
+        _coverView.backgroundColor = [UIColor clearColor];
+        [window addSubview:_coverView];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideDropDown)];
+        tap.delegate = self;
+        [_coverView addGestureRecognizer:tap];
+    }
+    return _coverView;
+}
+
+#pragma mark - Set Methods
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    [self initFrame:frame];
+}
+
+- (void)setRotateIcon:(UIImage *)rotateIcon {
+    _rotateIcon = rotateIcon;
+    [self.arrowMark setImage:rotateIcon];
+}
+- (void)setRotateIconSize:(CGSize)rotateIconSize {
+    _rotateIconSize = rotateIconSize;
+    [self.arrowMark setFrame:CGRectMake(self.mainBtn.bounds.size.width -self.rotateIconMarginRight -rotateIconSize.width, (self.mainBtn.bounds.size.height -rotateIconSize.height)/2, rotateIconSize.width, rotateIconSize.height)];
+}
+- (void)setRotateIconMarginRight:(CGFloat)rotateIconMarginRight {
+    _rotateIconMarginRight = rotateIconMarginRight;
+    [self.arrowMark setFrame:CGRectMake(self.mainBtn.bounds.size.width -rotateIconMarginRight -self.rotateIconSize.width, (self.mainBtn.bounds.size.height -self.rotateIconSize.height)/2, self.rotateIconSize.width, self.rotateIconSize.height)];
+}
+- (void)setRotateIconTint:(UIColor *)rotateIconTint {
+    _rotateIconTint = rotateIconTint;
+    self.arrowMark.tintColor = rotateIconTint;
+}
+
+- (void)setTitle:(NSString *)title{
+    _title = title;
+    [self.mainBtn setTitle:title forState:UIControlStateNormal];
+}
+- (void)setTitleBgColor:(UIColor *)titleBgColor{
+    _titleBgColor = titleBgColor;
+    [self.mainBtn setBackgroundColor:titleBgColor];
+    [self.arrowMark setBackgroundColor:titleBgColor];
+}
+- (void)setTitleFont:(UIFont *)titleFont{
+    _titleFont = titleFont;
+    self.mainBtn.titleLabel.font = titleFont;
+}
+- (void)setTitleColor:(UIColor *)titleColor{
+    _titleColor = titleColor;
+    [self.mainBtn setTitleColor:titleColor forState:UIControlStateNormal];
+}
+- (void)setTitleAlignment:(NSTextAlignment)titleAlignment{
+    _titleAlignment = titleAlignment;
+    if (titleAlignment == NSTextAlignmentLeft) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    } else if (titleAlignment == NSTextAlignmentCenter) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    } else if (titleAlignment == NSTextAlignmentRight) {
+        self.mainBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    }
+}
+- (void)setTitleEdgeInsets:(UIEdgeInsets)titleEdgeInsets{
+    _titleEdgeInsets = titleEdgeInsets;
+    self.mainBtn.titleEdgeInsets = titleEdgeInsets;
+}
+
+- (void)setShowsVerticalScrollIndicatorOfOptionsList:(BOOL)showsVerticalScrollIndicatorOfOptionsList {
+    _optionsList.showsVerticalScrollIndicator = showsVerticalScrollIndicatorOfOptionsList;
+}
+
 @end
+
+
+
 

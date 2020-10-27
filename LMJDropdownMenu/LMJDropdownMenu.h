@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) UIImage         * rotateIcon;
 @property (nonatomic,assign) CGSize            rotateIconSize;
-@property (nonatomic,assign) CGFloat           rotateIconMargin;
+@property (nonatomic,assign) CGFloat           rotateIconMarginRight; // default: 7.5
 @property (nonatomic,strong) UIColor         * rotateIconTint;
 
 @property (nonatomic,strong) UIColor         * optionBgColor;
@@ -55,8 +55,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIColor         * optionTextColor;
 @property (nonatomic)        NSTextAlignment   optionTextAlignment;
 @property (nonatomic)        NSInteger         optionNumberOfLines;
-@property (nonatomic,strong) UIColor         * optionLineColor;
 @property (nonatomic,assign) CGSize            optionIconSize;  // default:(15,15)
+@property (nonatomic,assign) CGFloat           optionIconMarginRight; // default: 15
+@property (nonatomic,strong) UIColor         * optionLineColor;
+@property (nonatomic,assign) CGFloat           optionLineHeight; // default: 0.5
 
 /*
  选项列表的最大高度。超出最大高度后，选项可滚动 （optionsListLimitHeight <= 0 时，下拉列表将显示所有选项）
