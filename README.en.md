@@ -88,7 +88,7 @@
 
 ## Update log      
 
-- **2020.12.18 (3.0.3) :  **                    
+- **2020.12.18 (3.0.3) ：**                 
 This update fixes the dropdown menu splitter display issue.                         
 - **2020.10.27（3.0.2）：**             
 This update adds several properties: the right margin and color of the rotation arrow, the right margin of the option icon, and the height of the option divider.              
