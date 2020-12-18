@@ -263,7 +263,7 @@
         icon.tag = 888;
         [cell addSubview:icon];
         
-        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, self.optionLineHeight)];
+        UIView * line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.optionLineHeight)];
         line.backgroundColor = self.optionLineColor;
         line.tag             = 777;
         [cell addSubview:line];
@@ -282,7 +282,7 @@
     icon.frame = CGRectMake(self.frame.size.width -self.optionIconSize.width -self.optionIconMarginRight, (cHeight - self.optionIconSize.height)/2, self.optionIconSize.width, self.optionIconSize.height);
     
     UIView *line = [cell viewWithTag:777];
-    line.frame           = CGRectMake(0, 0, cell.frame.size.width, self.optionLineHeight);
+    line.frame           = CGRectMake(0, 0, self.frame.size.width, self.optionLineHeight);
     line.backgroundColor = self.optionLineColor;
     
     return cell;
