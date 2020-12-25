@@ -54,6 +54,7 @@
 | optionFont | option font
 | optionTextColor | option font color
 | optionTextAlignment | option text alignment
+| optionTextMarginLeft | option left margin of text, default 15
 | optionNumberOfLines | option number of lines of text, default 0 (multiple lines)
 | optionIconSize | option icon size, default (15,15)
 | optionIconMarginRight | option icon right margin, default 15
@@ -88,6 +89,8 @@
 
 ## Update log      
 
+- **2020.12.25 (3.0.4) ：**                 
+This update adds the left margin of the option text.                            
 - **2020.12.18 (3.0.3) ：**                 
 This update fixes the dropdown menu splitter display issue.                         
 - **2020.10.27（3.0.2）：**             

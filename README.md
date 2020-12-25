@@ -53,6 +53,7 @@
 | optionFont | 选项字体
 | optionTextColor | 选项字体颜色
 | optionTextAlignment | 选项文字对齐
+| optionTextMarginLeft | 选项文字左侧边距，默认15
 | optionNumberOfLines | 选项文字行数，默认0（多行）
 | optionIconSize | 选项图标大小，默认(15,15)
 | optionIconMarginRight | 选项图标右侧边距，默认15
@@ -88,6 +89,8 @@
 
 ## 更新日志
 
+- **2020.12.25（3.0.4）：**                                                                     
+本次更新添加选项文字左侧边距。                        
 - **2020.12.18（3.0.3）：**                                                                     
 本次更新修复下拉菜单分割线展示问题。                                        
 - **2020.10.27（3.0.2）：**                                                                     
