@@ -70,6 +70,7 @@
     _optionFont             = [UIFont systemFontOfSize:13];
     _optionTextColor        = [UIColor blackColor];
     _optionTextAlignment    = NSTextAlignmentCenter;
+    _optionTextMarginLeft   = 15;
     _optionNumberOfLines    = 0;
     _optionIconSize         = CGSizeMake(0, 0);
     _optionIconMarginRight  = 15;
@@ -273,7 +274,7 @@
     
     UILabel * titleLabel = [cell viewWithTag:999];
     titleLabel.text  = [self.dataSource dropdownMenu:self titleForOptionAtIndex:indexPath.row];;
-    titleLabel.frame = CGRectMake(15, 0, self.frame.size.width - 15 -self.optionIconSize.width -self.optionIconMarginRight, cHeight);
+    titleLabel.frame = CGRectMake(self.optionTextMarginLeft, 0, self.frame.size.width - self.optionTextMarginLeft -self.optionIconSize.width -self.optionIconMarginRight, cHeight);
     
     UIImageView * icon = [cell viewWithTag:888];
     if ([self.dataSource respondsToSelector:@selector(dropdownMenu:iconForOptionAtIndex:)]){

@@ -54,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UIFont          * optionFont;
 @property (nonatomic,strong) UIColor         * optionTextColor;
 @property (nonatomic)        NSTextAlignment   optionTextAlignment;
+@property (nonatomic,assign) CGFloat           optionTextMarginLeft; // default: 15
 @property (nonatomic)        NSInteger         optionNumberOfLines;
 @property (nonatomic,assign) CGSize            optionIconSize;  // default:(15,15)
 @property (nonatomic,assign) CGFloat           optionIconMarginRight; // default: 15
