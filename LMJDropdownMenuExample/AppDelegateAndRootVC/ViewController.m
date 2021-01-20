@@ -10,6 +10,7 @@
 #import "Demo-BaseVC.h"
 #import "Demo-StoryboardVC.h"
 #import "Demo-TableViewCellVC.h"
+#import "Demo-LayoutByMasonryVC.h"
 
 @interface ViewController ()
 @end
@@ -26,6 +27,10 @@
 }
 - (IBAction)clickDemoAddToTableViewCell:(id)sender {
     Demo_TableViewCellVC *vc = [[UIStoryboard storyboardWithName:@"Demo_TableView" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"Demo_TableViewCellVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)clickDemoLayoutByMasonry:(id)sender {
+    Demo_LayoutByMasonryVC *vc = [[Demo_LayoutByMasonryVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
