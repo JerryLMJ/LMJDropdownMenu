@@ -72,7 +72,7 @@
 | - showDropDown | displays drop-down list
 | - hideDropDown | hide drop-down list
 
-| Deleget Method | Optional | Description |
+| Delegate Method | Optional | Description |
 | --- | --- | ---
 | *LMJDropdownMenuDataSource* | --- | -- -
 | - numberOfOptionsInDropdownMenu: | required | for the drop-down list
