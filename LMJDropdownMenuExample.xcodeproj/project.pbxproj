@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 994F530423B0D9F10044643E /* Demo-StoryboardVC.m */; };
 		994F530723B0DA060044643E /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 994F530623B0DA060044643E /* Demo.storyboard */; };
+		E4126364266E43D600066591 /* Demo-BaseNextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4126363266E43D600066591 /* Demo-BaseNextVC.m */; };
 		E43909562297E297002BD570 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E43909552297E297002BD570 /* AppDelegate.m */; };
 		E439095C2297E297002BD570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E439095A2297E297002BD570 /* Main.storyboard */; };
 		E43909612297E299002BD570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E439095F2297E299002BD570 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,8 @@
 		994F530323B0D9F10044643E /* Demo-StoryboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-StoryboardVC.h"; sourceTree = "<group>"; };
 		994F530423B0D9F10044643E /* Demo-StoryboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-StoryboardVC.m"; sourceTree = "<group>"; };
 		994F530623B0DA060044643E /* Demo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
+		E4126362266E43D600066591 /* Demo-BaseNextVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-BaseNextVC.h"; sourceTree = "<group>"; };
+		E4126363266E43D600066591 /* Demo-BaseNextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-BaseNextVC.m"; sourceTree = "<group>"; };
 		E43909512297E297002BD570 /* LMJDropdownMenuExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMJDropdownMenuExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E43909542297E297002BD570 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E43909552297E297002BD570 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 			children = (
 				E4557F402535A3CB00D7350F /* Demo-BaseVC.h */,
 				E4557F412535A3CB00D7350F /* Demo-BaseVC.m */,
+				E4126362266E43D600066591 /* Demo-BaseNextVC.h */,
+				E4126363266E43D600066591 /* Demo-BaseNextVC.m */,
 			);
 			path = "Demo-Base";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				E4DFB86C25B7DEF900F30F2B /* Demo-LayoutByMasonryVC.m in Sources */,
 				E4DFB85525B7D81800F30F2B /* MASCompositeConstraint.m in Sources */,
 				994F530523B0D9F10044643E /* Demo-StoryboardVC.m in Sources */,
+				E4126364266E43D600066591 /* Demo-BaseNextVC.m in Sources */,
 				E4DFB85425B7D81800F30F2B /* ViewController+MASAdditions.m in Sources */,
 				E4557F422535A3CB00D7350F /* Demo-BaseVC.m in Sources */,
 				E4557F3F2535A31000D7350F /* ViewController.m in Sources */,

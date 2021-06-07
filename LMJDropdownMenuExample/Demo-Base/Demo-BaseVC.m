@@ -7,6 +7,7 @@
 //
 
 #import "Demo-BaseVC.h"
+#import "Demo-BaseNextVC.h"
 #import "LMJDropdownMenu.h"
 
 @interface Demo_BaseVC () <LMJDropdownMenuDataSource,LMJDropdownMenuDelegate>
@@ -28,8 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    UIBarButtonItem* rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"next" style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextPage)];
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    
     
     
     _menu1OptionTitles = @[@"Option1",@"Option2",@"Option3",@"Option4",@"Option5"];
@@ -40,7 +44,7 @@
     
     // ----------------------- navigation bar menu ---------------------------
     navMenu = [[LMJDropdownMenu alloc] init];
-    [navMenu setFrame:CGRectMake(self.view.bounds.size.width - 160, 2, 150, 40)];
+    [navMenu setFrame:CGRectMake(self.view.bounds.size.width - 260, 2, 150, 40)];
     navMenu.dataSource = self;
     navMenu.delegate   = self;
     
@@ -135,6 +139,11 @@
     menu2.showsVerticalScrollIndicatorOfOptionsList = NO;
 
     [self.view addSubview:menu2];
+}
+
+- (void)gotoNextPage {
+    Demo_BaseNextVC *nextVC = [[Demo_BaseNextVC alloc] init];
+    [self.navigationController pushViewController:nextVC animated:YES];
 }
 
 #pragma mark - LMJDropdownMenu DataSource
